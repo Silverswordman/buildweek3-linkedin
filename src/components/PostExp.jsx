@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
 const PostExp = () => {
-  const UserId = "5d84937322b7b54d848eb41b";
+  const UserId = "6551e9edc55e7e0018f83c00";
   const [obj, setObj] = useState({
     role: "",
     company: "",
@@ -31,13 +31,15 @@ const PostExp = () => {
       .then((events) => {
         console.log("oggetto inviato", events);
         if (events.ok) {
-          alert("errore");
-          obj.role.value = "";
-          obj.company.value = "";
-          obj.startDate.value = "";
-          obj.endDate.value = "";
-          obj.area.value = "";
-          obj.description.value = "";
+          alert("oggetto inviato");
+          // setObj({
+          //   role: "",
+          //   company: "",
+          //   startDate: "",
+          //   endDate: "",
+          //   area: "",
+          //   description: "",
+          // });
         } else {
           alert("errore");
           throw new Error("errore nel post");

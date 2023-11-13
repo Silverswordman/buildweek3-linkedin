@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import PostExp from "./PostExp";
 
 const Experiences = () => {
-  const UserId = "5d84937322b7b54d848eb41b";
+  const UserId = "6551e9edc55e7e0018f83c00";
   const [Experience, setExperience] = useState([]);
   useEffect(() => {
-    // getExperiences();
+    getExperiences();
   }, []);
 
   const getExperiences = () => {
@@ -40,24 +40,31 @@ const Experiences = () => {
     <>
       <div className="d-flex flex-column ms-3 mt-3">
         <h2 className="">Esperienza</h2>
-        <div className="d-flex m-3">
-          <div>
-            <img src="http://placekitten.com/75" className=""></img>
-          </div>
-          <div className="ms-3">
-            <h4 className="mb-0">Teacher</h4>
-            <p className="mb-0">EPICODE - Autonomo</p>
-            <p className="mb-0">giu 2019 - Presente - 4 anni 6 mesi</p>
-            <p className="mb-0">Roma, Italia</p>
-            <p className="mt-3 mb-0">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint in
-              vero necessitatibus aliquid laboriosam voluptatibus voluptatem
-              quas voluptates, modi ipsam eligendi, nobis tempore doloribus
-              voluptate nam, temporibus nesciunt quibusdam neque!
-            </p>
-          </div>
-        </div>
-        <hr className="bg-black w-100 m-0"></hr>
+        {Experience.map((r) => {
+          return (
+            <div key={r._id}>
+              <div className="d-flex m-3">
+                <div>
+                  <img
+                    src="http://placekitten.com/75"
+                    alt="kitten"
+                    className=""
+                  ></img>
+                </div>
+                <div className="ms-3">
+                  <h4 className="mb-0">{r.role}</h4>
+                  <p className="mb-0">{r.company}</p>
+                  <p className="mb-0">
+                    {r.startDate} - {r.endDate}
+                  </p>
+                  <p className="mb-0">{r.area}</p>
+                  <p className="mt-3 mb-0">{r.description}</p>
+                </div>
+              </div>
+              <hr className="bg-black w-100 m-0"></hr>
+            </div>
+          );
+        })}
       </div>
       <PostExp></PostExp>
     </>
