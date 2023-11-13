@@ -18,117 +18,101 @@ const NavbarComp = () => {
     <Navbar
       bg="white"
       data-bs-theme="light"
-      className="d-flex justify-content-center p-0 border-bottom "
+      className="  p-0 border-bottom  justify-content-center"
     >
-      <Container className="justify-content-evenly">
-        <Nav className="align-items-baseline ">
-          {/* NAVBARBRAND */}
-          <Link to="/" className="me-2">
-            <img src={Logo} alt="Logo" width={35} />
-          </Link>
+      <Nav className="align-items-baseline">
+        {/* NAVBARBRAND */}
 
-          {/* SEARCH */}
-          <Nav.Item className="align-self-center d-none d-md-block  ">
-            <InputGroup className="a">
-              <InputGroup.Text
-                id="searchicon "
-                className="bg-secondary-subtle border-end-0 ps-1  "
-                size="sm"
-              >
-                {" "}
-                <BiSearchAlt2 className="fs-5" />
-              </InputGroup.Text>
-              <Form.Control
-                className="bg-secondary-subtle border-start-0  "
-                type="search"
-                placeholder="Cerca"
-                aria-label="Search"
-                aria-describedby="Search"
-                size="sm"
-              />
-            </InputGroup>
-          </Nav.Item>
-          <Link
-            to="/"
-            className="nav-link d-flex flex-column align-items-center"
-          >
-            <AiFillHome className="fs-4" /> <small> Home</small>
-          </Link>
-          <Link
-            to="/"
-            className="nav-link d-flex flex-column align-items-center"
-          >
-            <HiUsers className="fs-4" /> <small> Rete</small>
-          </Link>
-          <Link
-            to="/"
-            className="nav-link d-flex flex-column align-items-center"
-          >
-            <BsBriefcaseFill className="fs-4" />
-            <small> Lavoro</small>
-          </Link>
-          <Link
-            to="/"
-            className="nav-link d-flex flex-column align-items-center"
-          >
-            <BsChatDotsFill className="fs-4" />
-            <small> Messaggistica</small>
-          </Link>
-          <Link
-            to="/"
-            className="nav-link d-flex flex-column align-items-center"
-          >
-            <BsFillBellFill className="fs-4" />
-            <small>Notifiche</small>
-          </Link>
+        <Link to="/" className="me-2">
+          <img src={Logo} alt="Logo" width={35} />
+        </Link>
 
-          <Dropdown>
-            <Dropdown.Toggle
-              id="profile dropdown"
-              variant="white"
-              className="d-flex flex-column align-items-center  "
+        {/* SEARCH */}
+        <Nav.Item className="align-self-center d-none d-md-block ">
+          <InputGroup>
+            <InputGroup.Text
+              id="searchicon "
+              className="bg-secondary-subtle border-end-0 ps-1  "
+              size="sm"
             >
-              <img
-                src={Logo}
-                alt="logo"
-                width={25}
-                className="rounded-circle"
-              ></img>
-              <small> Tu</small>
-            </Dropdown.Toggle>
+              {" "}
+              <BiSearchAlt2 className="fs-5" />
+            </InputGroup.Text>
+            <Form.Control
+              className="bg-secondary-subtle border-start-0  "
+              type="search"
+              placeholder="Cerca"
+              aria-label="Search"
+              aria-describedby="Search"
+              size="sm"
+            />
+          </InputGroup>
+        </Nav.Item>
+        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+          <AiFillHome className="fs-4" /> <small> Home</small>
+        </Link>
+        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+          <HiUsers className="fs-4" /> <small> Rete</small>
+        </Link>
+        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+          <BsBriefcaseFill className="fs-4" />
+          <small> Lavoro</small>
+        </Link>
+        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+          <BsChatDotsFill className="fs-4" />
+          <small> Messaggistica</small>
+        </Link>
+        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+          <BsFillBellFill className="fs-4" />
+          <small>Notifiche</small>
+        </Link>
 
-            <Dropdown.Menu>
-              <Link to="/me" className="text-decoration-none ">
-                <div className="d-flex flex-column ">
-                  Profile
-                  <Button
-                    className="btn-sm fw-bold rounded-pill "
-                    variant="outline-primary border-2"
-                  >
-                    Visualizza Profilo
-                  </Button>
-                </div>
-              </Link>
-              <Dropdown.Divider />
-              <Dropdown.Item href="#/action-2 ">Account</Dropdown.Item>
-
-              <Dropdown.Item href="#/action-3">Gestisci</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item href="#/action-4">Esci</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Link
-            to="/"
-            className="nav-link d-flex flex-column align-items-center border-start"
+        <Dropdown>
+          <Dropdown.Toggle
+            id="profile dropdown"
+            variant="white"
+            className="d-flex flex-column align-items-center  "
           >
-            <BsGrid3X3GapFill className="fs-4" />
-            <small> Per le Aziende</small>
-          </Link>
-          <Link className="wrap">
-            <small>Prova Premium per 0 EUR</small>
-          </Link>
-        </Nav>
-      </Container>
+            <img
+              src={Logo}
+              alt="logo"
+              width={25}
+              className="rounded-circle"
+            ></img>
+            <small> Tu</small>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Link to="/me" className="text-decoration-none ">
+              <div className="d-flex flex-column ">
+                Profile
+                <Button
+                  className="btn-sm fw-bold rounded-pill "
+                  variant="outline-primary border-2"
+                >
+                  Visualizza Profilo
+                </Button>
+              </div>
+            </Link>
+            <Dropdown.Divider />
+            <Dropdown.Item href="#/action-2 ">Account</Dropdown.Item>
+
+            <Dropdown.Item href="#/action-3">Gestisci</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item href="#/action-4">Esci</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Link
+          to="/"
+          className="nav-link d-flex flex-column align-items-center border-start"
+        >
+          <BsGrid3X3GapFill className="fs-4" />
+          <small> Per le Aziende</small>
+        </Link>
+        <Link className="wrap">
+          <small>Prova Premium per 0 EUR</small>
+        </Link>
+      </Nav>
     </Navbar>
   );
 };
