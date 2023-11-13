@@ -1,13 +1,11 @@
 export const GET_PROFILE = "GET_PROFILE";
 
-
-
 export const GetProfileAction = () => {
-  const key = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTlkZGM1NWU3ZTAwMT
-  hmODNiZmYiLCJpYXQiOjE2OTk4NjcxMDIsImV4cCI6MTcwMTA3NjcwMn0.yX3_cvha-xvT0my5LvApLnk9QkLTGfJjfaT2RY_RL6M`;
+  const key =
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c";
 
   return async (dispatch) => {
-    fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+    fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
       headers: {
         Authorization: key,
       },
@@ -19,11 +17,11 @@ export const GetProfileAction = () => {
           throw new Error("errore nel recupero profili");
         }
       })
-      .then((profile) => {
-        console.log(profile);
+      .then((profiles) => {
+        console.log(profiles);
         dispatch({
           type: GET_PROFILE,
-          payload: profile,
+          payload: profiles,
         });
       })
       .catch((err) => {

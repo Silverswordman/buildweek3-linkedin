@@ -1,7 +1,7 @@
 import { GET_PROFILE } from "../actions";
 
 const initialState = {
-  profiles: {},
+  profiles: [],
 };
 
 const ProfileReducer = (state = initialState, action) => {
@@ -9,10 +9,11 @@ const ProfileReducer = (state = initialState, action) => {
     case GET_PROFILE:
       return {
         ...state,
-        profiles: action.payload,
+        profiles: [...state.profiles, action.payload],
       };
     default:
       return state;
   }
 };
+
 export default ProfileReducer;
