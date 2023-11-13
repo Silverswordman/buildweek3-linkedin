@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import PostExp from "./PostExp";
-import { fromUnixTime } from "date-fns";
 import format from "date-fns/format";
 
 const Experiences = () => {
@@ -56,8 +55,8 @@ const Experiences = () => {
                   <h4 className="mb-0">{r.role}</h4>
                   <p className="mb-0">{r.company}</p>
                   <p className="mb-0">
-                    {format(parseInt(r.startDate), "MM/dd/yyyy")} -
-                    {format(parseInt(r.endDate), "MM/dd/yyyy")}
+                    {format(new Date(r.startDate), "MM/dd/yyyy")} -
+                    {format(new Date(r.endDate), "MM/dd/yyyy")}
                   </p>
                   <p className="mb-0">{r.area}</p>
                   <p className="mt-3 mb-0">{r.description}</p>
