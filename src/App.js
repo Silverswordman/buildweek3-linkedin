@@ -3,15 +3,21 @@ import ProfileSection from "./components/ProfileSection";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComp from "./components/NavbarComp";
 import ProfileList from "./components/ProfileList";
+import "./style.css";
+import SettingsProfile from "./components/SettingsProfile";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <BrowserRouter>
       <NavbarComp />
-      <Routes>
-        <Route path="/:key" element={<ProfileSection />} />ù
-        <Route path="/profile" element={<ProfileList />} />
-      </Routes>
+      <Container id="mainContent" fluid>
+        <Routes>
+          <Route path="/:key" element={<ProfileSection />} />
+          <Route path="/settingsprofile" element={<SettingsProfile />} />
+          <Route path="/profile" element={<ProfileList />} />
+        </Routes>
+      </Container>
     </BrowserRouter>
   );
 }

@@ -17,13 +17,15 @@ const ProfileSection = ()=>{
         dispatch(getProfileAction(key))
     }, [])
 
+    
+
     return(
         <Container fluid>
             <Row className="justify-content-center">
-                <Col md={6}>
-                    <PersonalProfile/>
+                <Col md={6} className="bg-white mt-4 rounded-4 p-3 me-3">
+                    <PersonalProfile queryKey={key}/>
                 </Col>
-                <Col md={2}>
+                <Col md={2} className="bg-white mt-4 rounded-4">
                     <AsideProfileSection/>
                 </Col>
 
