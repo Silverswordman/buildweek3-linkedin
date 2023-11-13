@@ -13,7 +13,7 @@ export const getProfileAction = (keyWord) => {
         if (res.ok) {
           return res.json();
         } else {
-          throw new Error("errore nel recupero dei libri");
+          throw new Error("errore nel recupero del profilo");
         }
       })
       .then((profile) => {
