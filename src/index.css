@@ -1,6 +1,10 @@
+* {
+  font-family: "Source Sans 3", sans-serif !important;
+}
+
 body {
   margin: 0;
-  font-family: "Source Sans 3", sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f4f2ee !important;

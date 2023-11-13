@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 const PersonalProfile = () => {
   return (
-    <Container>
+    <Container >
       <Row>
         <Col md={12}>
           <Card>

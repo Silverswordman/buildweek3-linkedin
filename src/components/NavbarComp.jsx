@@ -31,7 +31,7 @@ const NavbarComp = () => {
         <Nav.Item className="align-self-center d-none d-md-block ">
           <InputGroup>
             <InputGroup.Text
-              id="searchicon "
+              id="searchicon"
               className="bg-secondary-subtle border-end-0 ps-1  "
               size="sm"
             >
@@ -45,6 +45,7 @@ const NavbarComp = () => {
               aria-label="Search"
               aria-describedby="Search"
               size="sm"
+              id="searchtext"
             />
           </InputGroup>
         </Nav.Item>
@@ -102,6 +103,7 @@ const NavbarComp = () => {
             <Dropdown.Item href="#/action-4">Esci</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
         <Link
           to="/"
           className="nav-link d-flex flex-column align-items-center border-start"
