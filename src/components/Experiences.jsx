@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PostExp from "./PostExp";
+import { fromUnixTime } from "date-fns";
+import format from "date-fns/format";
 
 const Experiences = () => {
   const UserId = "6551e9edc55e7e0018f83c00";
@@ -35,7 +37,6 @@ const Experiences = () => {
         console.log("ERROR", error);
       });
   };
-
   return (
     <>
       <div className="d-flex flex-column ms-3 mt-3">
@@ -55,7 +56,8 @@ const Experiences = () => {
                   <h4 className="mb-0">{r.role}</h4>
                   <p className="mb-0">{r.company}</p>
                   <p className="mb-0">
-                    {r.startDate} - {r.endDate}
+                    {format(parseInt(r.startDate), "MM/dd/yyyy")} -
+                    {format(parseInt(r.endDate), "MM/dd/yyyy")}
                   </p>
                   <p className="mb-0">{r.area}</p>
                   <p className="mt-3 mb-0">{r.description}</p>
