@@ -1,17 +1,35 @@
 import { useEffect } from "react"
 import { getProfileAction } from "../redux/actions"
 import { useDispatch } from "react-redux"
+import { useParams } from "react-router-dom"
+import { Col, Container, Row } from "react-bootstrap"
+import AsideProfileSection from "./AsideProfileSection"
+import PersonalProfile from "./PersonalProfile"
 
 
 const ProfileSection = ()=>{
+
+    const { key } = useParams()
+    
+
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch(getProfileAction())
+        dispatch(getProfileAction(key))
     }, [])
 
-    return(<div>
-        ciao
-    </div>)
+    return(
+        <Container fluid>
+            <Row className="justify-content-center">
+                <Col md={6}>
+                    <PersonalProfile/>
+                </Col>
+                <Col md={2}>
+                    <AsideProfileSection/>
+                </Col>
+
+            </Row>
+        </Container>
+    )
 }
 
 export default ProfileSection
