@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const PostExp = (props) => {
+const PutDeleteExp = (props) => {
   const UserId = useSelector((state) => state.profile.profile._id);
   const [obj, setObj] = useState({
     role: "",
@@ -14,36 +14,27 @@ const PostExp = (props) => {
     description: "",
   });
 
-  const PostData = () => {
+  const deleteData = (prop) => {
     fetch(
       "https://striveschool-api.herokuapp.com/api/profile/" +
         UserId +
-        "/experiences",
+        "/experiences/" +
+        props._Id,
       {
-        method: "POST",
-        body: JSON.stringify(obj),
+        method: "DELETE",
         headers: {
-          "Content-type": "application/json",
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c",
         },
       }
     )
       .then((events) => {
-        console.log("oggetto inviato", events);
+        // console.log("oggetto inviato", events);
         if (events.ok) {
-          alert("oggetto inviato");
-          // setObj({
-          //   role: "",
-          //   company: "",
-          //   startDate: "",
-          //   endDate: "",
-          //   area: "",
-          //   description: "",
-          // });
+          alert("oggetto eliminato");
         } else {
           alert("errore");
-          throw new Error("errore nel post");
+          throw new Error("errore nella delete");
         }
       })
       .catch((err) => {
@@ -55,8 +46,8 @@ const PostExp = (props) => {
       <Form
         onSubmit={(e) => {
           e.preventDefault();
-          PostData();
-          props.okFunction(false);
+          // PostData();
+          props.okPutFunction(false);
         }}
         className="w-75"
       >
@@ -147,12 +138,22 @@ const PostExp = (props) => {
         </Form.Group>
 
         <div className="d-flex justify-content-between w-100">
-        <Button variant="primary" type="submit">
-        Aggiungi
-      </Button>
+          <Button
+            onClick={() => {
+              props.okPutFunction(false);
+              deleteData();
+              // props.countFunction(true);
+            }}
+            variant="danger"
+          >
+            Elminia esperienza
+          </Button>
+          <Button variant="primary" type="submit">
+            Modifca
+          </Button>
         </div>
       </Form>
     </div>
   );
 };
-export default PostExp;
+export default PutDeleteExp;

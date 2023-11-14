@@ -1,3 +1,7 @@
 #mainContent {
   background-color: #fcf7ef;
 }
+.modal-modify{
+  position: absolute !important;
+  top: 200px !important;
+}
