@@ -17,16 +17,16 @@ const SecondProfileList = () => {
   }
 
   const dispatch = useDispatch();
-  const profileList = useSelector((state) => state.profilelist.list[0]);
+  const profileList = useSelector((state) => state.profilelist.list);
 
   useEffect(() => {
     dispatch(getProfileListAction());
   }, []);
 
-  console.log(profileList);
+  
 
   return (
-    <Card>
+    <Card className="mt-3">
       <Card.Body>
         <Card.Text>Persone che potresti conoscere</Card.Text>
         {profileList && profileList.length > 0
