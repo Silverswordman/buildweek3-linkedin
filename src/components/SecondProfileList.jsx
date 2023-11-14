@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileListAction } from "../redux/actions";
 import { Card, Row, Col, Button } from "react-bootstrap";
-import { FaArrowRight } from "react-icons/fa6";
+
 import { LiaPlusSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
 
@@ -24,10 +24,8 @@ const SecondProfileList = () => {
     dispatch(getProfileListAction());
   }, []);
 
-  
-
   return (
-    <Card className="mt-3">
+    <Card className="my-3">
       <Card.Body>
         <Card.Text>Persone che potresti conoscere</Card.Text>
         {profileList && profileList.length > 0
@@ -44,9 +42,12 @@ const SecondProfileList = () => {
                 <Col sm={10} className="pe-0 ps-4">
                   <Row className="flex-column">
                     <Col className=" fw-bold  ">
-                    <Link to={`/${profile._id}`} className="text-decoration-none text-black">
-                      {profile.name} {profile.surname}
-                    </Link>
+                      <Link
+                        to={`/${profile._id}`}
+                        className="text-decoration-none text-black"
+                      >
+                        {profile.name} {profile.surname}
+                      </Link>
                     </Col>
                     <Col className="small">{profile.title}</Col>
                   </Row>
@@ -67,7 +68,7 @@ const SecondProfileList = () => {
         onMouseEnter={changeBackground}
         onMouseLeave={resetBackground}
       >
-        Mostra tutto <FaArrowRight />
+        Mostra tutto
       </Card.Footer>
     </Card>
   );

@@ -12,6 +12,7 @@ import LicenseCard from "./LicenseCard";
 import CompetenzeCard from "./CompetenzeCard";
 import ProfileList from "./ProfileList";
 import SecondProfileList from "./SecondProfileList";
+import ProfileFooter from "./ProfileFooter";
 
 const ProfileSection = () => {
   const { key } = useParams();
@@ -20,14 +21,14 @@ const ProfileSection = () => {
   useEffect(() => {
     dispatch(getProfileAction(key));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch,key]);
+  }, [dispatch, key]);
 
   const profileId = useSelector((state) => state.profile.profile._id);
 
   return (
     <Container fluid>
-      <Row className="justify-content-center mt-4">
-        <Col md={6}>
+      <Row className="justify-content-center ">
+        <Col md={7} lg={6}>
           <PersonalProfile queryKey={key} />
           <Activities />
           <Experiences profileId={profileId} />
@@ -35,12 +36,13 @@ const ProfileSection = () => {
           <LicenseCard />
           <CompetenzeCard />
         </Col>
-        <Col md={2} className="pe-0">
+        <Col md={4} lg={2} className="pe-0">
           <AsideProfileSection />
           <ProfileList />
           <SecondProfileList />
         </Col>
       </Row>
+      <ProfileFooter />
     </Container>
   );
 };

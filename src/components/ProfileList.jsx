@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileListAction } from "../redux/actions";
 import { Card, Row, Col, Button } from "react-bootstrap";
-import { FaArrowRight } from "react-icons/fa6";
+
 import { LiaPlusSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
 
@@ -24,8 +24,6 @@ const ProfileList = () => {
     dispatch(getProfileListAction());
   }, []);
 
-  
-
   return (
     <Card className="mt-3">
       <Card.Body>
@@ -44,9 +42,12 @@ const ProfileList = () => {
                 <Col sm={10} className="pe-0 ps-4">
                   <Row className="flex-column">
                     <Col className=" fw-bold  ">
-                    <Link to={`/${profile._id}`} className="text-decoration-none text-black">
-                      {profile.name} {profile.surname}
-                    </Link>
+                      <Link
+                        to={`/${profile._id}`}
+                        className="text-decoration-none text-black"
+                      >
+                        {profile.name} {profile.surname}
+                      </Link>
                     </Col>
                     <Col className="small">{profile.title}</Col>
                   </Row>
@@ -67,7 +68,7 @@ const ProfileList = () => {
         onMouseEnter={changeBackground}
         onMouseLeave={resetBackground}
       >
-        Mostra tutte le attività <FaArrowRight />
+        Mostra tutto 
       </Card.Footer>
     </Card>
   );

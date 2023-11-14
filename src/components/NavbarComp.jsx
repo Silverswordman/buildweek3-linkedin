@@ -1,9 +1,11 @@
-import {  Form, Nav, Navbar, Button } from "react-bootstrap";
+import { Form, Nav, Navbar, Button, Row } from "react-bootstrap";
 import Logo from "../Assets/logo2.webp";
 import { Link } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { AiFillHome } from "react-icons/ai";
 import { HiUsers } from "react-icons/hi2";
+import { HiDotsHorizontal } from "react-icons/hi";
+
 import {
   BsBriefcaseFill,
   BsChatDotsFill,
@@ -18,7 +20,7 @@ const NavbarComp = () => {
     <Navbar
       bg="white"
       data-bs-theme="light"
-      className="  p-0 border-bottom  justify-content-center"
+      className="  p-0 border-bottom justify-content-center  "
     >
       <Nav className="align-items-baseline">
         {/* NAVBARBRAND */}
@@ -28,8 +30,8 @@ const NavbarComp = () => {
         </Link>
 
         {/* SEARCH */}
-        <Nav.Item className="align-self-center d-none d-md-block ">
-          <InputGroup className="pe-lg-5">
+        <Nav.Item className="align-self-center d-none d-md-block  me-lg-5">
+          <InputGroup className="pe-lg-4 me-lg-2">
             <InputGroup.Text
               id="searchicon"
               className="bg-secondary-subtle border-end-0 ps-1  "
@@ -51,36 +53,38 @@ const NavbarComp = () => {
         </Nav.Item>
         <Link
           to="/"
-          className="nav-link d-flex flex-column align-items-center ps-lg-5 pe-lg-3"
+          className="nav-link d-flex flex-column align-items-center ps-0 ms-lg-5 me-lg-3"
         >
-          <AiFillHome className="fs-4" /> <small> Home</small>
+          <AiFillHome className="fs-4 ms-1  " />
+          <span className="small d-none d-lg-block"> Home</span>
         </Link>
         <Link
           to="/"
           className="nav-link d-flex flex-column align-items-center px-lg-3"
         >
-          <HiUsers className="fs-4" /> <small> Rete</small>
+          <HiUsers className="fs-4" />{" "}
+          <span className="small d-none d-lg-block"> Rete</span>
         </Link>
         <Link
           to="/"
           className="nav-link d-flex flex-column align-items-center px-lg-3"
         >
           <BsBriefcaseFill className="fs-4" />
-          <small> Lavoro</small>
+          <span className="small d-none d-lg-block">Lavoro</span>
         </Link>
         <Link
           to="/"
           className="nav-link d-flex flex-column align-items-center px-lg-3"
         >
           <BsChatDotsFill className="fs-4" />
-          <small> Messaggistica</small>
+          <span className="small d-none d-lg-block"> Messaggistica</span>
         </Link>
         <Link
           to="/"
           className="nav-link d-flex flex-column align-items-center px-lg-3"
         >
           <BsFillBellFill className="fs-4" />
-          <small>Notifiche</small>
+          <span className="small d-none d-lg-block"> Notifiche</span>
         </Link>
 
         <Dropdown className="px-lg-3">
@@ -95,7 +99,7 @@ const NavbarComp = () => {
               width={25}
               className="rounded-circle"
             ></img>
-            <small> Tu</small>
+            <span className="small d-none d-lg-block"> Tu</span>
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -123,14 +127,37 @@ const NavbarComp = () => {
           to="/"
           className="nav-link d-flex flex-column align-items-center border-start px-lg-3"
         >
-          <BsGrid3X3GapFill className="fs-4" />
-          <small> Per le Aziende</small>
+          <BsGrid3X3GapFill className="fs-4 d-none d-sm-block" />
+          <span className="small d-none d-lg-block"> per le aziende</span>
         </Link>
-        <Link className="text-secondary text-center px-lg-3">
+        <Link className="text-secondary text-center px-lg-3 align-self-center d-none d-sm-block">
           <small>
             Prova Premium <br></br>per 0 EUR
           </small>
         </Link>
+        <Dropdown className="d-block d-sm-none" drop="down">
+          <Dropdown.Toggle variant="white" id=" menu plus dropdown">
+            <HiDotsHorizontal />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu className="dropdown-menu-end ">
+            {" "}
+            <div className="d-flex">
+              <Link
+                to="/"
+                className="nav-link d-flex flex-column align-items-center border-start px-lg-3"
+              >
+                <BsGrid3X3GapFill className="fs-4 " />
+                <span className="small d-none d-lg-block"> Per le aziende</span>
+              </Link>
+              <Link className="text-secondary text-center px-lg-3 align-self-center  ">
+                <small>
+                  Prova Premium <br></br>per 0 EUR
+                </small>
+              </Link>
+            </div>
+          </Dropdown.Menu>
+        </Dropdown>
       </Nav>
     </Navbar>
   );
