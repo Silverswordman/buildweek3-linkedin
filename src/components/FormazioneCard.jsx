@@ -3,9 +3,9 @@ import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { LiaPlusSolid } from "react-icons/lia";
 
-const Formazione = () => {
+const FormazioneCard = () => {
   return (
-    <Card>
+    <Card className="mb-1">
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>
@@ -26,10 +26,59 @@ const Formazione = () => {
             </Col>
           </Row>
         </Card.Title>
-        <Card.Text></Card.Text>
+        <Card.Text>
+          <Row className="mb-2">
+            <Col lg={2}>
+              {" "}
+              <img
+                src="http://placekitten.com/75"
+                alt="kitten"
+                className=""
+              ></img>
+            </Col>
+            <Col lg={10}>
+              <p className="fw-bold fs-5 my-0 ">Epicode</p>
+              <p className=" my-0 small ">Corso Front-End Web Development</p>
+              <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
+              <p className=" my-0 small ">Votazione 100/100</p>
+            </Col>
+          </Row>
+          <Row className="mb-2">
+            <Col lg={2}>
+              {" "}
+              <img
+                src="http://placekitten.com/75"
+                alt="kitten"
+                className=""
+              ></img>
+            </Col>
+            <Col lg={10}>
+              <p className="fw-bold fs-5 my-0 ">Epicode</p>
+              <p className=" my-0 small ">Corso Front-End Web Development</p>
+              <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
+              <p className=" my-0 small ">Votazione 100/100</p>
+            </Col>
+          </Row>
+          <Row className="mb-2">
+            <Col lg={2}>
+              {" "}
+              <img
+                src="http://placekitten.com/75"
+                alt="kitten"
+                className=""
+              ></img>
+            </Col>
+            <Col lg={10}>
+              <p className="fw-bold fs-5 my-0 ">Epicode</p>
+              <p className=" my-0 small ">Corso Front-End Web Development</p>
+              <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
+              <p className=" my-0 small ">Votazione 100/100</p>
+            </Col>
+          </Row>
+        </Card.Text>
       </Card.Body>
     </Card>
   );
 };
 
-export default Formazione;
+export default FormazioneCard;

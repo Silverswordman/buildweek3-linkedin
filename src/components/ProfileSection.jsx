@@ -7,7 +7,9 @@ import AsideProfileSection from "./AsideProfileSection";
 import PersonalProfile from "./PersonalProfile";
 import Experiences from "./Experiences";
 import Activities from "./ActivitiesCard";
-import Formazione from "./FormazioneCard";
+import FormazioneCard from "./FormazioneCard";
+import LicenseCard from "./LicenseCard";
+import CompetenzeCard from "./CompetenzeCard";
 
 const ProfileSection = () => {
   const { key } = useParams();
@@ -27,7 +29,9 @@ const ProfileSection = () => {
           <PersonalProfile queryKey={key} />
           <Activities></Activities>
           <Experiences profileId={profileId} />
-          <Formazione></Formazione>
+          <FormazioneCard></FormazioneCard>
+          <LicenseCard></LicenseCard>
+          <CompetenzeCard></CompetenzeCard>
         </Col>
         <Col md={2}>
           <AsideProfileSection />
