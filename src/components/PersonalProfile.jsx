@@ -7,7 +7,7 @@ const PersonalProfile = ()=>{
 
     const dataProfile = useSelector(state=> state.profile.profile)
     const {pathname} = useLocation()
-    console.log(pathname)
+    // console.log(pathname)
     const isMeRoute = pathname === "/me"
 
     return (

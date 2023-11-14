@@ -19,7 +19,7 @@ export const getProfileAction = (keyWord) => {
         }
       })
       .then((profile) => {
-        console.log(profile);
+        // console.log(profile);
         dispatch({
           type: GET_PROFILE,
           payload: profile,
@@ -46,7 +46,7 @@ export const getProfileListAction = () => {
         }
       })
       .then((profile) => {
-        console.log(profile);
+        // console.log(profile);
         dispatch({
           type: GET_PROFILE_LIST,
           payload: profile,
@@ -76,7 +76,7 @@ export const getExperiencesAction = (id) => {
         }
       })
       .then((experiences) => {
-        console.log(experiences);
+        // console.log(experiences);
         dispatch({
           type: GET_EXPERIENCES,
           payload: experiences,
