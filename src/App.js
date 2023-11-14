@@ -1,25 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProfileSection from "./components/ProfileSection";
 import "bootstrap/dist/css/bootstrap.min.css";
+import NavbarComp from "./components/NavbarComp";
+import ProfileList from "./components/ProfileList";
+import "./style.css";
+import SettingsProfile from "./components/SettingsProfile";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavbarComp />
+      <Container id="mainContent" fluid>
+        <Routes>
+          <Route path="/:key" element={<ProfileSection />} />
+          <Route path="/settingsprofile" element={<SettingsProfile />} />
+          <Route path="/profile" element={<ProfileList />} />
+        </Routes>
+      </Container>
+    </BrowserRouter>
   );
 }
 
