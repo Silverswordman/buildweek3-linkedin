@@ -72,6 +72,7 @@ const Experiences = (props) => {
                   <p className="mb-0">{r.area}</p>
                   <p className="mt-3 mb-0">{r.description}</p>
                 </div>
+                <hr className="bg-black w-100 m-0"></hr>
               </div>
               <hr className="bg-black w-100 m-0"></hr>
               {okPut && (
