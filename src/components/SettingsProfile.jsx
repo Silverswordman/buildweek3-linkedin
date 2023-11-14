@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import {AiOutlineRollback} from 'react-icons/ai'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { setProfileAction } from "../redux/actions"
 
