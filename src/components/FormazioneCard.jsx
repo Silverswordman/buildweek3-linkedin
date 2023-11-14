@@ -1,23 +1,24 @@
 import { Button, Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
-const Activities = () => {
+import { LiaPlusSolid } from "react-icons/lia";
+
+const Formazione = () => {
   return (
     <Card>
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>
             <Col lg={6} className="fw-bold ">
-              Attività
+              Formazione
             </Col>
 
-            <Col lg={6} className="text-end ">
-              <Button
-                variant="outline-primary"
-                className="rounded-pill border-1 py-1 px-3 fw-bold "
-              >
-                Crea un post
-              </Button>{" "}
+            <Col lg={6} className="text-end align-items-center">
+              <LiaPlusSolid
+                className=" fs-3 text-secondary me-4 "
+                style={{ cursor: "pointer" }}
+              />
+
               <HiOutlinePencil
                 className=" fs-4 text-secondary  "
                 style={{ cursor: "pointer" }}
@@ -25,15 +26,10 @@ const Activities = () => {
             </Col>
           </Row>
         </Card.Title>
-        <Card.Text
-          className="text-primary   fw-bold small "
-          style={{ cursor: "pointer" }}
-        >
-          20 follower
-        </Card.Text>
+        <Card.Text></Card.Text>
       </Card.Body>
     </Card>
   );
 };
 
-export default Activities;
+export default Formazione;

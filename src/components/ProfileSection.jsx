@@ -6,6 +6,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import AsideProfileSection from "./AsideProfileSection";
 import PersonalProfile from "./PersonalProfile";
 import Experiences from "./Experiences";
+import Activities from "./ActivitiesCard";
+import Formazione from "./FormazioneCard";
 
 const ProfileSection = () => {
   const { key } = useParams();
@@ -20,12 +22,14 @@ const ProfileSection = () => {
 
   return (
     <Container fluid>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mt-4">
         <Col md={6}>
           <PersonalProfile queryKey={key} />
+          <Activities></Activities>
           <Experiences profileId={profileId} />
+          <Formazione></Formazione>
         </Col>
-        <Col md={2} className="bg-white mt-4 rounded-4">
+        <Col md={2}>
           <AsideProfileSection />
         </Col>
       </Row>
