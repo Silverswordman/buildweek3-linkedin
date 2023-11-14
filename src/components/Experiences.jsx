@@ -62,8 +62,12 @@ const Experiences = (props) => {
                   </div>
                   <p className="mb-0">{r.company}</p>
                   <p className="mb-0">
-                    {format(new Date(r.startDate), "MM/dd/yyyy")} -
-                    {format(new Date(r.endDate), "MM/dd/yyyy")}
+                  {r.startDate && r.endDate && (
+                    <>
+                      {format(new Date(r.startDate), "MM/dd/yyyy")} -
+                      {format(new Date(r.endDate), "MM/dd/yyyy")}
+                    </>
+                    )}
                   </p>
                   <p className="mb-0">{r.area}</p>
                   <p className="mt-3 mb-0">{r.description}</p>
