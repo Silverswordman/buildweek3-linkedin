@@ -10,6 +10,7 @@ import Activities from "./ActivitiesCard";
 import FormazioneCard from "./FormazioneCard";
 import LicenseCard from "./LicenseCard";
 import CompetenzeCard from "./CompetenzeCard";
+import ProfileList from "./ProfileList";
 
 const ProfileSection = () => {
   const { key } = useParams();
@@ -35,6 +36,7 @@ const ProfileSection = () => {
         </Col>
         <Col md={2}>
           <AsideProfileSection />
+          <ProfileList></ProfileList>
         </Col>
       </Row>
     </Container>

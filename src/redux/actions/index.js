@@ -46,7 +46,7 @@ export const getProfileListAction = () => {
         }
       })
       .then((profile) => {
-        console.log(profile);
+        // console.log(profile);
         dispatch({
           type: GET_PROFILE_LIST,
           payload: profile,

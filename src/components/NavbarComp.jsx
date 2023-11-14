@@ -23,7 +23,7 @@ const NavbarComp = () => {
       <Nav className="align-items-baseline">
         {/* NAVBARBRAND */}
 
-        <Link to="/" className="me-2">
+        <Link to="/" className="me-2 align-self-center ">
           <img src={Logo} alt="Logo" width={35} />
         </Link>
 

@@ -1,4 +1,4 @@
-import { Button, CardFooter, Col, Row } from "react-bootstrap";
+import { Button,  Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { FaArrowRight } from "react-icons/fa6";
@@ -25,7 +25,7 @@ const Activities = () => {
 
             <Col lg={6} className="text-end ">
               <Button
-                variant="outlinfe-primary  "
+                variant="outline-primary  "
                 className="rounded-pill border-1 py-1 px-3 me-3 fw-bold "
               >
                 Crea un post
