@@ -5,7 +5,7 @@ import { Card, Row, Col, Button } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa6";
 import { LiaPlusSolid } from "react-icons/lia";
 
-const ProfileList = () => {
+const SecondProfileList = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   function changeBackground() {
@@ -28,9 +28,9 @@ const ProfileList = () => {
   return (
     <Card>
       <Card.Body>
-        <Card.Text>Altri Profili Consultati</Card.Text>
+        <Card.Text>Persone che potresti conoscere</Card.Text>
         {profileList && profileList.length > 0
-          ? profileList.slice(0, 10).map((profile) => (
+          ? profileList.slice(13, 18).map((profile) => (
               <Row key={profile._id} className="my-3">
                 <Col sm={1} className="me-2">
                   <img
@@ -64,10 +64,10 @@ const ProfileList = () => {
         onMouseEnter={changeBackground}
         onMouseLeave={resetBackground}
       >
-        Mostra tutte le attività <FaArrowRight />
+        Mostra tutto <FaArrowRight />
       </Card.Footer>
     </Card>
   );
 };
 
-export default ProfileList;
+export default SecondProfileList;

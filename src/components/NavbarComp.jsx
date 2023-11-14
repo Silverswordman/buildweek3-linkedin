@@ -23,13 +23,13 @@ const NavbarComp = () => {
       <Nav className="align-items-baseline">
         {/* NAVBARBRAND */}
 
-        <Link to="/" className="me-2">
+        <Link to="/" className="me-2 align-self-center ">
           <img src={Logo} alt="Logo" width={35} />
         </Link>
 
         {/* SEARCH */}
         <Nav.Item className="align-self-center d-none d-md-block ">
-          <InputGroup>
+          <InputGroup className="pe-lg-5">
             <InputGroup.Text
               id="searchicon"
               className="bg-secondary-subtle border-end-0 ps-1  "
@@ -49,26 +49,41 @@ const NavbarComp = () => {
             />
           </InputGroup>
         </Nav.Item>
-        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+        <Link
+          to="/"
+          className="nav-link d-flex flex-column align-items-center ps-lg-5 pe-lg-3"
+        >
           <AiFillHome className="fs-4" /> <small> Home</small>
         </Link>
-        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+        <Link
+          to="/"
+          className="nav-link d-flex flex-column align-items-center px-lg-3"
+        >
           <HiUsers className="fs-4" /> <small> Rete</small>
         </Link>
-        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+        <Link
+          to="/"
+          className="nav-link d-flex flex-column align-items-center px-lg-3"
+        >
           <BsBriefcaseFill className="fs-4" />
           <small> Lavoro</small>
         </Link>
-        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+        <Link
+          to="/"
+          className="nav-link d-flex flex-column align-items-center px-lg-3"
+        >
           <BsChatDotsFill className="fs-4" />
           <small> Messaggistica</small>
         </Link>
-        <Link to="/" className="nav-link d-flex flex-column align-items-center">
+        <Link
+          to="/"
+          className="nav-link d-flex flex-column align-items-center px-lg-3"
+        >
           <BsFillBellFill className="fs-4" />
           <small>Notifiche</small>
         </Link>
 
-        <Dropdown>
+        <Dropdown className="px-lg-3">
           <Dropdown.Toggle
             id="profile dropdown"
             variant="white"
@@ -106,13 +121,15 @@ const NavbarComp = () => {
 
         <Link
           to="/"
-          className="nav-link d-flex flex-column align-items-center border-start"
+          className="nav-link d-flex flex-column align-items-center border-start px-lg-3"
         >
           <BsGrid3X3GapFill className="fs-4" />
           <small> Per le Aziende</small>
         </Link>
-        <Link className="wrap">
-          <small>Prova Premium per 0 EUR</small>
+        <Link className="text-secondary text-center px-lg-3">
+          <small>
+            Prova Premium <br></br>per 0 EUR
+          </small>
         </Link>
       </Nav>
     </Navbar>
