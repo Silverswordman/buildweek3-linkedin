@@ -1,9 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const PostExp = () => {
-  const UserId = "6551e9edc55e7e0018f83c00";
+  const UserId = useSelector((state) => state.profile.profile._id);
   const [obj, setObj] = useState({
     role: "",
     company: "",

@@ -7,11 +7,14 @@ import format from "date-fns/format";
 const Experiences = (props) => {
   const dispatch = useDispatch();
   const Experience = useSelector((state) => state.experiences.content);
+const [ok,setOk] = useState(false)
   console.log(props.profileId);
 
   useEffect(() => {
     if (typeof props.profileId === "string" && props.profileId.trim() !== "") {
+      
       dispatch(getExperiencesAction(props.profileId));
+      setOk(true)
     }
   }, [dispatch, props.profileId]);
 
@@ -46,7 +49,7 @@ const Experiences = (props) => {
     <>
       <div className="d-flex flex-column ms-3 mt-3">
         <h2 className="">Esperienza</h2>
-        {Experience.map((r) => {
+        {ok&&Experience.map((r) => {
           return (
             <div key={r._id}>
               <div className="d-flex m-3">
