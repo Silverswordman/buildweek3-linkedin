@@ -15,7 +15,7 @@ const Activities = () => {
     setIsHovered(false);
   }
   return (
-    <Card>
+    <Card className="mt-3">
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>

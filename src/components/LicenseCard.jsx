@@ -5,7 +5,7 @@ import { LiaPlusSolid } from "react-icons/lia";
 
 const LicenseCard = () => {
   return (
-    <Card className="mb-1">
+    <Card className="mb-1 mt-3">
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>

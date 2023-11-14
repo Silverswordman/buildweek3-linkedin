@@ -8,6 +8,7 @@ import { FaPen } from "react-icons/fa6";
 import Modal from "react-bootstrap/Modal";
 import { FaPlus } from "react-icons/fa";
 import PutDeleteExp from "./PutDeleteExp";
+import { Card } from "react-bootstrap";
 
 const Experiences = (props) => {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ const Experiences = (props) => {
 
   return (
     <>
-      <div className="d-flex flex-column ms-3 mt-3">
+    <Card className="p-3 mt-3">
+      <div className="d-flex flex-column  ">
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="">Esperienza</h2>
           <FaPlus
@@ -72,9 +74,9 @@ const Experiences = (props) => {
                   <p className="mb-0">{r.area}</p>
                   <p className="mt-3 mb-0">{r.description}</p>
                 </div>
-                <hr className="bg-black w-100 m-0"></hr>
+                {/* <hr className="bg-black w-100 m-0"></hr> */}
               </div>
-              <hr className="bg-black w-100 m-0"></hr>
+              {/* <hr className="bg-black w-100 m-0"></hr> */}
               {okPut && (
                 <div
                   className="modal show modal-modify"
@@ -121,6 +123,7 @@ const Experiences = (props) => {
           </div>
         )}
       </div>
+      </Card>
     </>
   );
 };
