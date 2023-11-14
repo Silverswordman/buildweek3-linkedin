@@ -4,4 +4,5 @@
 .modal-modify{
   position: absolute !important;
   top: 200px !important;
+  left: 200px;
 }

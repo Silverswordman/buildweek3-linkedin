@@ -12,20 +12,21 @@ import PutDeleteExp from "./PutDeleteExp";
 const Experiences = (props) => {
   const dispatch = useDispatch();
   const Experience = useSelector((state) => state.experiences.content);
+  console.log(Experience);
   const [ok, setOk] = useState(false);
   const [okPut, setOkPut] = useState(false);
-
+  const [underId, setUnderId] = useState(0);
 
   const okFunction = (elem) => [setOk(elem)];
+  const underIdFunction = (elem) => [setUnderId(elem)];
   const okPutFunction = (elem) => [setOkPut(elem)];
   const countFunction = (elem) => [window.location.reload(elem)];
   useEffect(() => {
     if (typeof props.profileId === "string" && props.profileId.trim() !== "") {
       dispatch(getExperiencesAction(props.profileId));
-      console.log(Experience);
+      // console.log(Experience);
     }
-  }, [dispatch, props.profileId, ok]);
-
+  }, [dispatch, props.profileId, ok,underId]);
 
   return (
     <>
@@ -55,7 +56,8 @@ const Experiences = (props) => {
                     <h4 className="mb-0">{r.role}</h4>
                     <FaPen
                       onClick={() => {
-                        setOkPut(true);
+                        setOkPut(r._id);
+                        setUnderId(r._id);
                         console.log(`ciao`);
                       }}
                     />
@@ -70,7 +72,7 @@ const Experiences = (props) => {
                 </div>
               </div>
               <hr className="bg-black w-100 m-0"></hr>
-              {okPut && (
+              {underId === r._id && (
                 <div
                   className="modal show modal-modify"
                   style={{ display: "block", position: "initial" }}
@@ -79,14 +81,26 @@ const Experiences = (props) => {
                     <Modal.Header
                       closeButton
                       onClick={() => {
+                        setUnderId(0);
                         setOkPut(false);
                       }}
                     >
-                      <Modal.Title>Modifica esperienza</Modal.Title>
+                      <Modal.Title>
+                        Modifica esperienza
+                        <span className="fw-bold text-success">
+                          {" "}
+                          {r.role.toUpperCase()}
+                        </span>
+                      </Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
-                      <PutDeleteExp countFunction={countFunction} okPutFunction={okPutFunction} _Id={r._id} />
+                      <PutDeleteExp
+                        underIdFunction={underIdFunction}
+                        countFunction={countFunction}
+                        okPutFunction={okPutFunction}
+                        _Id={r._id}
+                      />
                     </Modal.Body>
                   </Modal.Dialog>
                 </div>
@@ -110,7 +124,7 @@ const Experiences = (props) => {
               </Modal.Header>
 
               <Modal.Body>
-                <PostExp  okFunction={okFunction}></PostExp>
+                <PostExp okFunction={okFunction}></PostExp>
               </Modal.Body>
             </Modal.Dialog>
           </div>
