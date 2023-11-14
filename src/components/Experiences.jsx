@@ -8,6 +8,7 @@ import { FaPen } from "react-icons/fa6";
 import Modal from "react-bootstrap/Modal";
 import { FaPlus } from "react-icons/fa";
 import PutDeleteExp from "./PutDeleteExp";
+import  empty  from "../Assets/linkedin.png";
 
 const Experiences = (props) => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Experiences = (props) => {
       dispatch(getExperiencesAction(props.profileId));
       // console.log(Experience);
     }
-  }, [dispatch, props.profileId, ok,underId]);
+  }, [dispatch, props.profileId, ok, underId]);
 
   return (
     <>
@@ -46,9 +47,10 @@ const Experiences = (props) => {
               <div className="d-flex m-3">
                 <div>
                   <img
-                    src="http://placekitten.com/75"
+                    src={empty}
                     alt="kitten"
-                    className=""
+                    className="rounded-1"
+                    width={50}
                   ></img>
                 </div>
                 <div className="ms-3 w-100">
