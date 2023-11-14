@@ -20,7 +20,7 @@ const ProfileSection = () => {
   useEffect(() => {
     dispatch(getProfileAction(key));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch,key]);
 
   const profileId = useSelector((state) => state.profile.profile._id);
 
