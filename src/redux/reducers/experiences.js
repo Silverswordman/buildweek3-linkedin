@@ -1,7 +1,7 @@
 import { GET_EXPERIENCES } from "../actions";
 
 const initialState = {
-  content: [],
+  content: {},
 };
 
 const experiencesReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const experiencesReducer = (state = initialState, action) => {
     case GET_EXPERIENCES:
       return {
         ...state,
-        content: [...state.content, action.payload],
+        content: action.payload,
       };
     default:
       return state;

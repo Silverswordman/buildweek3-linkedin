@@ -22,7 +22,7 @@ const PersonalProfile = ()=>{
             </Col>
             <Col md={12} className="mt-3">
               <div className="d-flex justify-content-between align-items-center">
-              <h2>{dataProfile.name + dataProfile.surname}</h2>
+              <h2>{`${dataProfile.name} ${dataProfile.surname}`}</h2>
               {isMeRoute && (
                   <Link to="/settingsprofile" className="text-decoration-none">
                     <HiOutlinePencil style={{ fontSize: '1.5em', cursor: 'pointer' }} />

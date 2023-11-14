@@ -17,12 +17,13 @@ const ProfileSection = ()=>{
     useEffect(()=>{
         dispatch(getProfileAction(key))
     }, [])
+    
     const profileId = useSelector(state=>state.profile.profile._id)
-
     
 
     return(
         <Container fluid>
+            
             <Row className="justify-content-center">
                 <Col md={6} >
                     <PersonalProfile queryKey={key}/>
