@@ -1,10 +1,17 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const PutDeleteExp = (props) => {
   const UserId = useSelector((state) => state.profile.profile._id);
+  const [data1, setData1] = useState({
+    role: "",
+    description: "",
+    area: "",
+    company: "",
+  });
+
   const [obj, setObj] = useState({
     role: "",
     company: "",
@@ -13,44 +20,6 @@ const PutDeleteExp = (props) => {
     area: "",
     description: "",
   });
-
-  const PutData = () => {
-    fetch(
-      "https://striveschool-api.herokuapp.com/api/profile/" +
-        UserId +
-        "/experiences/" +
-        props._Id,
-      {
-        method: "PUT",
-        body: JSON.stringify(obj),
-        headers: {
-          "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c",
-        },
-      }
-    )
-      .then((events) => {
-        console.log("oggetto modificato", events);
-        if (events.ok) {
-          alert("oggetto modificato");
-          // setObj({
-          //   role: "",
-          //   company: "",
-          //   startDate: "",
-          //   endDate: "",
-          //   area: "",
-          //   description: "",
-          // });
-        } else {
-          alert("errore");
-          throw new Error("errore nel post");
-        }
-      })
-      .catch((err) => {
-        console.log("si e verificato un errore", err);
-      });
-  };
 
   const deleteData = () => {
     fetch(
@@ -79,6 +48,72 @@ const PutDeleteExp = (props) => {
         console.log("si e verificato un errore", err);
       });
   };
+
+  const PutData = () => {
+    fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" +
+        UserId +
+        "/experiences/" +
+        props._Id,
+      {
+        method: "PUT",
+        body: JSON.stringify(obj),
+        headers: {
+          "Content-type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c",
+        },
+      }
+    )
+      .then((events) => {
+        console.log("oggetto modiicato", events);
+        console.log(props._Id);
+        if (events.ok) {
+          alert("oggetto modiicato");
+        } else {
+          alert("errore");
+          throw new Error("errore nel post");
+        }
+      })
+      .catch((err) => {
+        console.log("si e verificato un errore", err);
+      });
+  };
+
+  const getData = () => {
+    fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" +
+        UserId +
+        "/experiences/" +
+        props._Id,
+      {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c",
+        },
+      }
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("errore nel recupero dei libri");
+        }
+      })
+      .then((experiences) => {
+        const data = experiences;
+        console.log(data, `data`);
+        setObj(data);
+      })
+      .catch((err) => {
+        console.log("errore", err);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+    console.log(props._Id);
+  }, []);
   return (
     <div className="m-5 w-100 d-flex justify-content-start">
       <Form
@@ -86,6 +121,8 @@ const PutDeleteExp = (props) => {
           e.preventDefault();
           PutData();
           props.okPutFunction(false);
+          // PostData();
+          props.underIdFunction(0);
         }}
         className="w-75"
       >
@@ -117,6 +154,7 @@ const PutDeleteExp = (props) => {
             className="border-dark-subtle"
             type="text"
             placeholder="Azienda..."
+           
           />
         </Form.Group>
         <Form.Group className="mb-1" controlId="">
@@ -162,6 +200,7 @@ const PutDeleteExp = (props) => {
             className="border-dark-subtle"
             type="text"
             placeholder="Dove..."
+          
           />
         </Form.Group>
         <Form.Group className="mb-4" controlId="">
@@ -178,6 +217,7 @@ const PutDeleteExp = (props) => {
             rows={4}
             cols={4}
             className="mt-4 w-100 border-dark-subtle"
+          
           />
         </Form.Group>
 
@@ -185,6 +225,7 @@ const PutDeleteExp = (props) => {
           <Button
             onClick={() => {
               props.okPutFunction(false);
+              props.underIdFunction(0);
               deleteData();
               // props.countFunction(true);
             }}
@@ -192,7 +233,16 @@ const PutDeleteExp = (props) => {
           >
             Elminia esperienza
           </Button>
-          <Button variant="primary" type="submit">
+          <Button
+            onClick={() => {
+              props.okPutFunction(false);
+              props.underIdFunction(0);
+              PutData();
+              // props.countFunction(true);
+            }}
+            variant="primary"
+            type="submit"
+          >
             Modifca
           </Button>
         </div>

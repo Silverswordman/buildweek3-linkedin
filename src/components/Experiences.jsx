@@ -8,25 +8,27 @@ import { FaPen } from "react-icons/fa6";
 import Modal from "react-bootstrap/Modal";
 import { FaPlus } from "react-icons/fa";
 import PutDeleteExp from "./PutDeleteExp";
+import  empty  from "../Assets/linkedin.png";
 import { Card } from "react-bootstrap";
 
 const Experiences = (props) => {
   const dispatch = useDispatch();
   const Experience = useSelector((state) => state.experiences.content);
+  console.log(Experience);
   const [ok, setOk] = useState(false);
   const [okPut, setOkPut] = useState(false);
-
+  const [underId, setUnderId] = useState(0);
 
   const okFunction = (elem) => [setOk(elem)];
+  const underIdFunction = (elem) => [setUnderId(elem)];
   const okPutFunction = (elem) => [setOkPut(elem)];
   const countFunction = (elem) => [window.location.reload(elem)];
   useEffect(() => {
     if (typeof props.profileId === "string" && props.profileId.trim() !== "") {
       dispatch(getExperiencesAction(props.profileId));
-      console.log(Experience);
+      // console.log(Experience);
     }
-  }, [dispatch, props.profileId, ok]);
-
+  }, [dispatch, props.profileId, ok, underId]);
 
   return (
     <>
@@ -47,9 +49,10 @@ const Experiences = (props) => {
               <div className="d-flex m-3">
                 <div>
                   <img
-                    src="http://placekitten.com/75"
+                    src={empty}
                     alt="kitten"
-                    className=""
+                    className="rounded-1"
+                    width={50}
                   ></img>
                 </div>
                 <div className="ms-3 w-100">
@@ -57,7 +60,8 @@ const Experiences = (props) => {
                     <h4 className="mb-0">{r.role}</h4>
                     <FaPen
                       onClick={() => {
-                        setOkPut(true);
+                        setOkPut(r._id);
+                        setUnderId(r._id);
                         console.log(`ciao`);
                       }}
                     />
@@ -65,10 +69,10 @@ const Experiences = (props) => {
                   <p className="mb-0">{r.company}</p>
                   <p className="mb-0">
                   {r.startDate && r.endDate && (
-                    <>
+                    <span>
                       {format(new Date(r.startDate), "MM/dd/yyyy")} -
                       {format(new Date(r.endDate), "MM/dd/yyyy")}
-                    </>
+                    </span>
                     )}
                   </p>
                   <p className="mb-0">{r.area}</p>
@@ -86,14 +90,26 @@ const Experiences = (props) => {
                     <Modal.Header
                       closeButton
                       onClick={() => {
+                        setUnderId(0);
                         setOkPut(false);
                       }}
                     >
-                      <Modal.Title>Modifica esperienza</Modal.Title>
+                      <Modal.Title>
+                        Modifica esperienza
+                        <span className="fw-bold text-success">
+                          {" "}
+                          {r.role.toUpperCase()}
+                        </span>
+                      </Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body>
-                      <PutDeleteExp countFunction={countFunction} okPutFunction={okPutFunction} _Id={r._id} />
+                      <PutDeleteExp
+                        underIdFunction={underIdFunction}
+                        countFunction={countFunction}
+                        okPutFunction={okPutFunction}
+                        _Id={r._id}
+                      />
                     </Modal.Body>
                   </Modal.Dialog>
                 </div>
@@ -117,7 +133,7 @@ const Experiences = (props) => {
               </Modal.Header>
 
               <Modal.Body>
-                <PostExp  okFunction={okFunction}></PostExp>
+                <PostExp okFunction={okFunction}></PostExp>
               </Modal.Body>
             </Modal.Dialog>
           </div>
