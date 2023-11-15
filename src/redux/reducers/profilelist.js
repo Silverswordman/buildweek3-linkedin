@@ -1,7 +1,7 @@
 import { GET_PROFILE_LIST } from "../actions";
 
 const initialState = {
-  list: [],
+  list: {},
 };
 
 const profileListReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const profileListReducer = (state = initialState, action) => {
     case GET_PROFILE_LIST:
       return {
         ...state,
-        list: [...state.list, action.payload],
+        list: action.payload,
       };
     default:
       return state;

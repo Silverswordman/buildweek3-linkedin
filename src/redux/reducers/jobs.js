@@ -1,12 +1,12 @@
-import { GET_EXPERIENCES } from "../actions";
+import { SEARCH_JOBS } from "../actions";
 
 const initialState = {
   content: [],
 };
 
-const experiencesReducer = (state = initialState, action) => {
+const jobsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_EXPERIENCES:
+    case SEARCH_JOBS:
       return {
         ...state,
         content: action.payload,
@@ -16,4 +16,4 @@ const experiencesReducer = (state = initialState, action) => {
   }
 };
 
-export default experiencesReducer;
+export default jobsReducer;
