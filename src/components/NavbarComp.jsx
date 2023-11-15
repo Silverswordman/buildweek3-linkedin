@@ -58,7 +58,7 @@ const NavbarComp = () => {
         {/* SEARCH */}
         <Nav.Item className="align-self-center d-none d-md-block ">
           <Form onSubmit={handleFormSubmit}>
-            <InputGroup className="pe-lg-5">
+            <InputGroup className="pe-lg-5 ps-xl-2">
               <InputGroup.Text
                 id="searchicon"
                 className="bg-secondary-subtle border-end-0 ps-1  "

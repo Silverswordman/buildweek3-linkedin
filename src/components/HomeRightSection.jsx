@@ -3,6 +3,7 @@ import { BsFillInfoSquareFill } from "react-icons/bs";
 import ProfilePic from "../Assets/1660833954461.png";
 import { FaChevronDown } from "react-icons/fa";
 import LogoLI from "../Assets/logo.png";
+import HomeFooter from "./HomeFooter";
 
 const HomeRightSection = () => {
   const [profileObj, setprofileObj] = useState([]);
@@ -102,6 +103,7 @@ const HomeRightSection = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
