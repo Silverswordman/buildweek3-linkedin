@@ -17,7 +17,7 @@ function App() {
           <Route path="/:key" element={<ProfileSection />} />
           <Route path="/settingsprofile" element={<SettingsProfile />} />
           <Route path="/profile" element={<ProfileList />} />
-          <Route path="/jobs" element={<Jobs/>}/>
+          <Route path="/jobs" element={<Jobs />} />
         </Routes>
       </Container>
     </BrowserRouter>

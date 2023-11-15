@@ -1,4 +1,4 @@
-import { Button,  Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { FaArrowRight } from "react-icons/fa6";
@@ -46,7 +46,7 @@ const Activities = () => {
       </Card.Body>
       <Card.Footer
         className={`bg-${
-          isHovered ? "secondary-subtle text-dark" : "white"
+          isHovered ? "#e0e0e0 text-dark" : "white"
         } text-center text-secondary  fw-bold`}
         style={{ cursor: "pointer" }}
         onMouseEnter={changeBackground}

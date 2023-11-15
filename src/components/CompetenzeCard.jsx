@@ -121,7 +121,7 @@ const CompetenzeCard = () => {
       </Card.Body>{" "}
       <Card.Footer
         className={`bg-${
-          isHovered ? "secondary-subtle text-dark" : "white"
+          isHovered ? "#e0e0e0 text-dark" : "white"
         } text-center text-secondary  fw-bold`}
         style={{ cursor: "pointer" }}
         onMouseEnter={changeBackground}
