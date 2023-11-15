@@ -33,14 +33,26 @@ const Jobs = ()=>{
           })
     }
 
-    useEffect(()=>{
-        getJobs()
-    },[])
+    // useEffect(()=>{
+    //     getJobs()
+    // },[])
 
     useEffect(()=>{
         dispatch(getJobsListAction(query))
     },[query])
+    
+    const [jobDetails, setJobDetails] = useState()
 
+    useEffect(()=>{
+
+        if(searchedJobs){
+            console.log('ci siamo')
+            setJobDetails(searchedJobs[0])
+        }
+    },[searchedJobs])
+
+
+    const handleClick = (clickedJob) => setJobDetails(clickedJob)
     return(
    
        <Container>
@@ -61,7 +73,7 @@ const Jobs = ()=>{
                 <Row className="row-cols-1">
                     {(searchedJobs && searchedJobs.length > 0 ? searchedJobs : jobList).slice(0, 25).map((el) => (
                           <Col key={el._id} className="text-center" style={{ cursor: 'pointer' }}>
-                            <SingleJob key={el._id} job={el} />
+                            <SingleJob key={el._id} job={el} handleClick={handleClick} />
                           </Col>
                         ))}
 
@@ -69,7 +81,9 @@ const Jobs = ()=>{
             </Card>
         </Col>
         <Col>
-        <JobDetails/>
+        {jobDetails && (
+        <JobDetails jobDetails={jobDetails} />
+        )}
         </Col>
         </Row>
        </Container>
