@@ -6,7 +6,7 @@ const SingleJob = (props)=>{
     return(
         <>
         
-        <Container fluid>
+        <Container fluid onClick={()=>{props.handleClick(props.job)}}>
             <Row className="mt-3 border-bottom pb-2">
                 <Col>
                 <div>{props.job.company_name}</div>
