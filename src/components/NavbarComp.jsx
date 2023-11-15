@@ -1,6 +1,6 @@
 import {  Form, Nav, Navbar, Button } from "react-bootstrap";
 import Logo from "../Assets/logo2.webp";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { AiFillHome } from "react-icons/ai";
 import { HiUsers } from "react-icons/hi2";
@@ -12,8 +12,33 @@ import {
 } from "react-icons/bs";
 import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getJobsListAction, resetJobListAction, setQueryAction } from "../redux/actions";
+
 
 const NavbarComp = () => {
+
+  const resetQuery = ''
+  const dispatch = useDispatch()
+  const location = useLocation()
+  const [query,setQuery] = useState('')
+  const handleFormSubmit = (e)=>{
+    e.preventDefault()
+    if(location.pathname.endsWith('/jobs')){
+      dispatch(setQueryAction(query))
+    } else {
+      console.log('non sei nella pagina giusta')
+    }
+
+  }
+
+  useEffect(()=>{
+    if(location.pathname !== '/jobs'){
+      dispatch(setQueryAction(resetQuery))
+    }
+  },[location, dispatch])
+
   return (
     <Navbar
       bg="white"
@@ -29,6 +54,7 @@ const NavbarComp = () => {
 
         {/* SEARCH */}
         <Nav.Item className="align-self-center d-none d-md-block ">
+          <Form onSubmit={handleFormSubmit}> 
           <InputGroup className="pe-lg-5">
             <InputGroup.Text
               id="searchicon"
@@ -46,8 +72,12 @@ const NavbarComp = () => {
               aria-describedby="Search"
               size="sm"
               id="searchtext"
+              onChange={(e)=>{
+                setQuery(e.target.value)
+              }}
             />
           </InputGroup>
+          </Form>
         </Nav.Item>
         <Link
           to="/"
@@ -62,7 +92,7 @@ const NavbarComp = () => {
           <HiUsers className="fs-4" /> <small> Rete</small>
         </Link>
         <Link
-          to="/"
+          to="/jobs"
           className="nav-link d-flex flex-column align-items-center px-lg-3"
         >
           <BsBriefcaseFill className="fs-4" />
