@@ -9,6 +9,7 @@ import Modal from "react-bootstrap/Modal";
 import { FaPlus } from "react-icons/fa";
 import PutDeleteExp from "./PutDeleteExp";
 import  empty  from "../Assets/linkedin.png";
+import { Card } from "react-bootstrap";
 
 const Experiences = (props) => {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ const Experiences = (props) => {
 
   return (
     <>
-      <div className="d-flex flex-column ms-3 mt-3">
+    <Card className="p-3 mt-3">
+      <div className="d-flex flex-column  ">
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="">Esperienza</h2>
           <FaPlus
@@ -66,15 +68,20 @@ const Experiences = (props) => {
                   </div>
                   <p className="mb-0">{r.company}</p>
                   <p className="mb-0">
-                    {format(new Date(r.startDate), "MM/dd/yyyy")} -
-                    {format(new Date(r.endDate), "MM/dd/yyyy")}
+                  {r.startDate && r.endDate && (
+                    <>
+                      {format(new Date(r.startDate), "MM/dd/yyyy")} -
+                      {format(new Date(r.endDate), "MM/dd/yyyy")}
+                    </>
+                    )}
                   </p>
                   <p className="mb-0">{r.area}</p>
                   <p className="mt-3 mb-0">{r.description}</p>
                 </div>
+                {/* <hr className="bg-black w-100 m-0"></hr> */}
               </div>
-              <hr className="bg-black w-100 m-0"></hr>
-              {underId === r._id && (
+              {/* <hr className="bg-black w-100 m-0"></hr> */}
+              {okPut && (
                 <div
                   className="modal show modal-modify"
                   style={{ display: "block", position: "initial" }}
@@ -132,6 +139,7 @@ const Experiences = (props) => {
           </div>
         )}
       </div>
+      </Card>
     </>
   );
 };

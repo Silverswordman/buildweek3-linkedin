@@ -6,6 +6,7 @@ import ProfileList from "./components/ProfileList";
 import "./style.css";
 import SettingsProfile from "./components/SettingsProfile";
 import { Container } from "react-bootstrap";
+import Jobs from "./components/Jobs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/:key" element={<ProfileSection />} />
           <Route path="/settingsprofile" element={<SettingsProfile />} />
           <Route path="/profile" element={<ProfileList />} />
+          <Route path="/jobs" element={<Jobs/>}/>
         </Routes>
       </Container>
     </BrowserRouter>
