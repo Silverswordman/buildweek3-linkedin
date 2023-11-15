@@ -90,7 +90,7 @@ const NavbarComp = () => {
           <span className="small d-none d-lg-block"> Home</span>
         </Link>
         <Link
-          to="/"
+          to="/profile"
           className="nav-link d-flex flex-column align-items-center px-lg-3"
         >
           <HiUsers className="fs-4" />{" "}
