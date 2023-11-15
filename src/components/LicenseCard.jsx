@@ -1,4 +1,4 @@
-import {  Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { LiaPlusSolid } from "react-icons/lia";
@@ -26,7 +26,7 @@ const LicenseCard = () => {
             </Col>
           </Row>
         </Card.Title>
-        <Card.Text>
+        <div>
           <Row className="mb-2">
             <Col lg={2}>
               {" "}
@@ -42,7 +42,7 @@ const LicenseCard = () => {
               <p className=" my-0 small ">Votazione 100/100</p>
             </Col>
           </Row>
-        </Card.Text>
+        </div>
       </Card.Body>
     </Card>
   );

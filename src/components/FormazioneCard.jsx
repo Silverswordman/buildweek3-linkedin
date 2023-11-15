@@ -26,7 +26,7 @@ const FormazioneCard = () => {
             </Col>
           </Row>
         </Card.Title>
-        <Card.Text>
+        <div>
           <Row className="mb-2">
             <Col lg={2}>
               {" "}
@@ -75,7 +75,7 @@ const FormazioneCard = () => {
               <p className=" my-0 small ">Votazione 100/100</p>
             </Col>
           </Row>
-        </Card.Text>
+        </div>
       </Card.Body>
     </Card>
   );
