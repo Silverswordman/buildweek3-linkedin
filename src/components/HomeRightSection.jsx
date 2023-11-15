@@ -41,8 +41,8 @@ const HomeRightSection = () => {
   );
   return (
     <>
-      <div className="m-3" style={{ display: "block", position: "initial" }}>
-        <div className="bg-white my-2 py-2 border border-1r rounded ">
+      <div  style={{ display: "block", position: "initial" }}>
+        <div className="bg-white mb-2 py-2 border border-1r rounded ">
           <div className="d-flex justify-content-between align-items-center">
             <p className="mb-0 px-2 py-1 fw-semibold">LinkedIn Notizie</p>
             <BsFillInfoSquareFill className=" me-2"></BsFillInfoSquareFill>
@@ -103,7 +103,6 @@ const HomeRightSection = () => {
           </div>
         </div>
       </div>
-      
     </>
   );
 };

@@ -56,8 +56,9 @@ const HomeFooter = () => {
           Accessibilità
         </Col>
       </Row>
-      <Row className="text-center text-muted small mt-1">
+      <Row className="justify-content-center text-muted small mt-1">
         <Col
+          xs={4}
           lg={6}
           className="text-end"
           style={getColStyle(2)}
@@ -67,6 +68,7 @@ const HomeFooter = () => {
           Centro Assistenza
         </Col>
         <Col
+          xs={4}
           lg={6}
           className=" text-start"
           style={getColStyle(3)}
@@ -76,9 +78,10 @@ const HomeFooter = () => {
           Privacy e condizioni
         </Col>
       </Row>
-      <Row className="text-center text-muted small mt-1">
+      <Row className="justify-content-center text-muted small mt-1">
         <Col
-          lg={12}
+          xs={6}
+          lg={9}
           style={getColStyle(4)}
           onMouseEnter={() => handleMouseEnter(4)}
           onMouseLeave={handleMouseLeave}
@@ -86,8 +89,9 @@ const HomeFooter = () => {
           Opzioni per gli annunci pubblicitari
         </Col>
       </Row>
-      <Row className="text-center text-muted small mt-1">
+      <Row className="justify-content-center text-muted small mt-1">
         <Col
+          xs={4}
           lg={6}
           className="text-end"
           style={getColStyle(5)}
@@ -97,6 +101,7 @@ const HomeFooter = () => {
           Pubblicità
         </Col>
         <Col
+          xs={4}
           lg={6}
           className="text-start"
           style={getColStyle(6)}
@@ -106,8 +111,9 @@ const HomeFooter = () => {
           Servizi alle Aziende
         </Col>
       </Row>
-      <Row className="text-center text-muted small mt-1">
+      <Row className="justify-content-center text-muted small mt-1">
         <Col
+          xs={4}
           lg={7}
           className="text-end"
           style={getColStyle(7)}
@@ -117,6 +123,7 @@ const HomeFooter = () => {
           Scarica l'app Linkedin
         </Col>
         <Col
+          xs={4}
           lg={3}
           className="text-start"
           style={getColStyle(8)}

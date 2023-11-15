@@ -163,7 +163,7 @@ const NavbarComp = () => {
         </Link>
         <Link className="text-secondary text-center px-lg-3 align-self-center d-none d-sm-block">
           <small>
-            Prova Premium <br></br>per 0 EUR
+            Prova Premium <br></br>per 99,99 EUR
           </small>
         </Link>
         <Dropdown className="d-block d-sm-none" drop="down">
@@ -183,7 +183,7 @@ const NavbarComp = () => {
               </Link>
               <Link className="text-secondary text-center px-lg-3 align-self-center  ">
                 <small>
-                  Prova Premium <br></br>per 0 EUR
+                  Prova Premium <br></br>per 99,99 EUR
                 </small>
               </Link>
             </div>

@@ -25,9 +25,9 @@ const SingleJob = (props) => {
           <Col lg={10}>
             <Row className="flex-column border-bottom">
               <Col
-                className="fw-bold"
+                className="fw-semibold"
                 style={{
-                  color: isHovered ? "#007BFF" : "#007BFF",
+                  color: isHovered ? "#007BFF" : " #007BFF",
                   textDecoration: isHovered ? "underline" : "none",
                 }}
               >

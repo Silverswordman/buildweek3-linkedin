@@ -50,7 +50,7 @@ const HomeMainSection = () => {
       {postArray.map((r) => {
         return (
           <div
-            className="bg-white m-3 p-3 border border-1r rounded"
+            className="bg-white mt-1 p-3 border border-1r rounded"
             style={{ display: "block", position: "initial" }}
             key={r._id}
           >

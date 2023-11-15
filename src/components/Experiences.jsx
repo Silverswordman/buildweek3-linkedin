@@ -31,7 +31,7 @@ const Experiences = (props) => {
       <Card className="p-3 mt-3">
         <div className="d-flex flex-column  ">
           <div className="d-flex justify-content-between align-items-center">
-            <h2 className="">Esperienza</h2>
+            <h4 className="">Esperienza</h4>
             <LiaPlusSolid
               onClick={() => {
                 setOk(true);

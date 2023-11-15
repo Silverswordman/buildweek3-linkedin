@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import ProfilePic from "../Assets/1660833954461.png";
 import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const HomeLeftSection = () => {
   const [profileObj, setprofileObj] = useState([]);
@@ -39,7 +40,7 @@ const HomeLeftSection = () => {
   );
   return (
     <>
-      <div className="m-3" style={{ display: "block", position: "initial" }}>
+      <div style={{ display: "block", position: "initial" }}>
         <div className="bg-white  border border-1r rounded ">
           <div className="d-flex flex-column justify-content-center align-items-center">
             <div className=" px-3 pt-3 d-flex flex-column justify-content-center align-items-center">
@@ -58,7 +59,12 @@ const HomeLeftSection = () => {
               <p className="mb-0 mt-2 fw-semibold text-secondary Fs-8">
                 Collegamenti
               </p>
-              <p className="mb-0 fw-semibold Fs-8">Espandi la tua rete</p>
+              <Link
+                to="/profile"
+                className="mb-0 fw-semibold Fs-8 text-secondary text-decoration-none "
+              >
+                Espandi la tua rete
+              </Link>
             </div>
             <p className="number mb-0 mt-2">16</p>
           </div>
@@ -68,7 +74,7 @@ const HomeLeftSection = () => {
               <p className="mb-0 mt-2 text-secondary Fs-8">
                 Accedi a strumenti e informazioni in esclusiva
               </p>
-              <p className="mb-0 fw-semibold Fs-8">Prova Premium gratis</p>
+              <p className="mb-0 fw-semibold Fs-8">Prova Premium NON gratis</p>
             </div>
           </div>
           <hr className="bg-black w-100 my-2"></hr>

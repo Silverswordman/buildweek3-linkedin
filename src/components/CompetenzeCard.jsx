@@ -21,7 +21,7 @@ const CompetenzeCard = () => {
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>
-            <Col lg={6} className="fw-bold ">
+            <Col lg={6} className="fw-semibold ">
               Competenze
             </Col>
 
@@ -39,7 +39,7 @@ const CompetenzeCard = () => {
           </Row>
         </Card.Title>
         <div className=" mb-4">
-          <Row className="fw-bold mb-1">HTML</Row>
+          <Row className="fw-semibold mb-1">HTML</Row>
           <Row>
             <Col lg={1}>
               {" "}
@@ -72,7 +72,7 @@ const CompetenzeCard = () => {
           </Row>
         </div>
         <div className=" mb-4">
-          <Row className="fw-bold mb-1">CSS</Row>
+          <Row className="fw-semibold mb-1">CSS</Row>
           <Row>
             <Col lg={1}>
               {" "}
@@ -96,7 +96,7 @@ const CompetenzeCard = () => {
         </div>
 
         <div className=" mb-4">
-          <Row className="fw-bold mb-1">Javascript</Row>
+          <Row className="fw-semibold mb-1">Javascript</Row>
           <Row>
             <Col lg={1}>
               {" "}
@@ -122,7 +122,7 @@ const CompetenzeCard = () => {
       <Card.Footer
         className={`bg-${
           isHovered ? "#e0e0e0 text-dark" : "white"
-        } text-center text-secondary  fw-bold`}
+        } text-center text-secondary  fw-semibold`}
         style={{ cursor: "pointer" }}
         onMouseEnter={changeBackground}
         onMouseLeave={resetBackground}

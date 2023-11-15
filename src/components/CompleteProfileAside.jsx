@@ -13,34 +13,34 @@ const CompleteProfileAside = () => {
   return (
     <Card className="mt-4 ">
       <Card.Body className="p-2">
-        <Card.Text>Gestisci la tua rete</Card.Text>
+        <Card.Text className="ms-2">Gestisci la tua rete</Card.Text>
         <ListGroup>
-          <ListGroupItem className="border-0 text-muted">
-            <HiUsers className="fs-4 me-1" /> Collegamenti
+          <ListGroupItem className="border-0 text-muted ">
+            <HiUsers className="fs-4 me-2" /> Collegamenti
           </ListGroupItem>
           <ListGroupItem className="border-0 text-muted">
-            <HiUser className="fs-4 me-1" /> Persone che segui e follower
+            <HiUser className="fs-4 me-2" /> Persone che segui e follower
           </ListGroupItem>
           <ListGroupItem className="border-0 text-muted">
-            <FaRegCalendarAlt className="fs-4 me-1" />
+            <FaRegCalendarAlt className="fs-4 me-2" />
             Eventi
           </ListGroupItem>
           <ListGroupItem className="border-0 text-muted">
             {" "}
-            <FaRegBuilding className="fs-4 me-1" />
+            <FaRegBuilding className="fs-4 me-2" />
             Pagine
           </ListGroupItem>
           <ListGroupItem className="border-0 text-muted">
-            <FaRegNewspaper className="fs-4 me-1" />
+            <FaRegNewspaper className="fs-4 me-2" />
             Newsletter
           </ListGroupItem>
           <ListGroupItem className="border-0 text-muted">
             {" "}
-            <FaHashtag className="fs-4 me-1" />
+            <FaHashtag className="fs-4 me-2" />
             Hashtag
           </ListGroupItem>
         </ListGroup>
-        <Card.Text className="fw-bold text-secondary mt-2 ">
+        <Card.Text className="fw-semibold text-secondary mt-2 ms-2 ">
           Meno Dettagli <MdKeyboardArrowUp />
         </Card.Text>
       </Card.Body>

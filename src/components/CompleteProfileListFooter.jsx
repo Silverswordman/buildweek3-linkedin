@@ -38,7 +38,8 @@ const CompleteProfileListFooter = () => {
     <Container>
       <Row className="justify-content-center text-muted small mt-1">
         <Col
-          xs={4}
+          xs={5}
+          sm={4}
           className=" text-end"
           style={getColStyle(0)}
           onMouseEnter={() => handleMouseEnter(0)}
@@ -47,7 +48,8 @@ const CompleteProfileListFooter = () => {
           Informazioni
         </Col>
         <Col
-          xs={4}
+          xs={5}
+          sm={4}
           className="text-start"
           style={getColStyle(1)}
           onMouseEnter={() => handleMouseEnter(1)}
@@ -86,14 +88,14 @@ const CompleteProfileListFooter = () => {
         </Col>
       </Row>
       <Row className="text-center text-muted small mt-1">
-        <Col
+        <Col xs={6}
           style={getColStyle(5)}
           onMouseEnter={() => handleMouseEnter(5)}
           onMouseLeave={handleMouseLeave}
         >
           Pubblicità
         </Col>
-        <Col
+        <Col xs={6}
           style={getColStyle(6)}
           onMouseEnter={() => handleMouseEnter(6)}
           onMouseLeave={handleMouseLeave}
@@ -103,6 +105,7 @@ const CompleteProfileListFooter = () => {
       </Row>
       <Row className="text-center text-muted small mt-1">
         <Col
+        xs={6}
           style={getColStyle(7)}
           onMouseEnter={() => handleMouseEnter(7)}
           onMouseLeave={handleMouseLeave}
@@ -110,6 +113,7 @@ const CompleteProfileListFooter = () => {
           Scarica l'app Linkedin
         </Col>
         <Col
+        xs={6}
           style={getColStyle(8)}
           onMouseEnter={() => handleMouseEnter(8)}
           onMouseLeave={handleMouseLeave}

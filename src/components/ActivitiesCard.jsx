@@ -19,14 +19,14 @@ const Activities = () => {
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>
-            <Col lg={6} className="fw-bold ">
+            <Col lg={6} className="fw-semibold ">
               Attività
             </Col>
 
             <Col lg={6} className="text-end ">
               <Button
                 variant="outline-primary  "
-                className="rounded-pill border-1 py-1 px-3 me-3 fw-bold "
+                className="rounded-pill border-1 py-1 px-3 me-3 fw-semibold "
               >
                 Crea un post
               </Button>{" "}
@@ -38,7 +38,7 @@ const Activities = () => {
           </Row>
         </Card.Title>
         <Card.Text
-          className="text-primary   fw-bold small "
+          className="text-primary   fw-semibold small "
           style={{ cursor: "pointer" }}
         >
           20 follower
@@ -47,7 +47,7 @@ const Activities = () => {
       <Card.Footer
         className={`bg-${
           isHovered ? "#e0e0e0 text-dark" : "white"
-        } text-center text-secondary  fw-bold`}
+        } text-center text-secondary  fw-semibold`}
         style={{ cursor: "pointer" }}
         onMouseEnter={changeBackground}
         onMouseLeave={resetBackground}

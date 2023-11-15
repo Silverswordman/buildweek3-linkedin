@@ -50,7 +50,7 @@ const CompleteProfileList = () => {
                       </Col>
                       <Col sm={9} md={7} className="pe-0 ps-4">
                         <Row className="flex-column">
-                          <Col className="fw-bold">
+                          <Col className="fw-semibold">
                             <Link
                               to={`/${profile._id}`}
                               className="text-decoration-none text-black fs-5"
@@ -111,7 +111,7 @@ const CompleteProfileList = () => {
             {/* <Card.Footer
               className={`bg-${
                 hoveredProfileId ? "#e0e0e0 text-dark" : "white"
-              } text-center text-secondary fw-bold`}
+              } text-center text-secondary fw-semibold`}
               style={{ cursor: "pointer" }}
               onMouseEnter={() => changeBackground("footer")}
               onMouseLeave={resetBackground}
