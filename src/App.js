@@ -7,6 +7,7 @@ import "./style.css";
 import SettingsProfile from "./components/SettingsProfile";
 import { Container } from "react-bootstrap";
 import Jobs from "./components/Jobs";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/settingsprofile" element={<SettingsProfile />} />
           <Route path="/profile" element={<ProfileList />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Container>
     </BrowserRouter>
