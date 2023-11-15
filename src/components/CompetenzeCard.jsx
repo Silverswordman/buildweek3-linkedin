@@ -38,7 +38,7 @@ const CompetenzeCard = () => {
             </Col>
           </Row>
         </Card.Title>
-        <CardText className=" mb-4">
+        <div className=" mb-4">
           <Row className="fw-bold mb-1">HTML</Row>
           <Row>
             <Col lg={1}>
@@ -70,8 +70,8 @@ const CompetenzeCard = () => {
               <p className=" my-0  ">18 Conferme</p>
             </Col>
           </Row>
-        </CardText>
-        <CardText className=" mb-4">
+        </div>
+        <div className=" mb-4">
           <Row className="fw-bold mb-1">CSS</Row>
           <Row>
             <Col lg={1}>
@@ -93,9 +93,9 @@ const CompetenzeCard = () => {
               <p className=" my-0  ">40 Conferme</p>
             </Col>
           </Row>
-        </CardText>
+        </div>
 
-        <CardText className=" mb-4">
+        <div className=" mb-4">
           <Row className="fw-bold mb-1">Javascript</Row>
           <Row>
             <Col lg={1}>
@@ -117,7 +117,7 @@ const CompetenzeCard = () => {
               <p className=" my-0  ">8 Conferme</p>
             </Col>
           </Row>
-        </CardText>
+        </div>
       </Card.Body>{" "}
       <Card.Footer
         className={`bg-${
