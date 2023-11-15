@@ -58,17 +58,17 @@ const HomeLeftSection = () => {
               <p className="mb-0 mt-2 fw-semibold text-secondary Fs-8">
                 Collegamenti
               </p>
-              <p className="mb-0 fw-semibold Fs-9">Espandi la tua rete</p>
+              <p className="mb-0 fw-semibold Fs-8">Espandi la tua rete</p>
             </div>
             <p className="number mb-0 mt-2">16</p>
           </div>
           <hr className="bg-black w-100 mb-0 "></hr>
-          <div className="d-flex justify-content-around px-2 ">
+          <div className="d-flex justify-content-between px-2 ">
             <div>
               <p className="mb-0 mt-2 text-secondary Fs-8">
                 Accedi a strumenti e informazioni in esclusiva
               </p>
-              <p className="mb-0 fw-semibold Fs-9">Prova Premium gratis</p>
+              <p className="mb-0 fw-semibold Fs-8">Prova Premium gratis</p>
             </div>
           </div>
           <hr className="bg-black w-100 my-2"></hr>

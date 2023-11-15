@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import HomeMainSection from "./HomeMainSection";
 import HomeLeftSection from "./HomeLeftSection";
+import HomeRightSection from "./HomeRightSection";
 
 const Home = () => {
   return (
@@ -12,7 +13,9 @@ const Home = () => {
         <Col md={6}>
           <HomeMainSection></HomeMainSection>
         </Col>
-        <Col md={2}></Col>
+        <Col md={3}>
+          <HomeRightSection></HomeRightSection>
+        </Col>
       </Row>
     </Container>
   );
