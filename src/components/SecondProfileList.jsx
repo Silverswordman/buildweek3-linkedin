@@ -7,15 +7,15 @@ import { LiaPlusSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
 
 const SecondProfileList = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredProfileId, setHoveredProfileId] = useState(null);
 
-  function changeBackground() {
-    setIsHovered(true);
-  }
+  const changeBackground = (profileId) => {
+    setHoveredProfileId(profileId);
+  };
 
-  function resetBackground() {
-    setIsHovered(false);
-  }
+  const resetBackground = () => {
+    setHoveredProfileId(null);
+  };
 
   const dispatch = useDispatch();
   const profileList = useSelector((state) => state.profilelist.list);
@@ -36,17 +36,50 @@ const SecondProfileList = () => {
                     src={profile.image}
                     alt="profilepic"
                     width={35}
-                    className="rounded-circle  "
+                    className="rounded-circle"
                   />
                 </Col>
                 <Col sm={10} className="pe-0 ps-4">
                   <Row className="flex-column">
-                    <Col className=" fw-bold  ">
+                    <Col className="fw-bold">
                       <Link
                         to={`/${profile._id}`}
                         className="text-decoration-none text-black"
                       >
-                        {profile.name} {profile.surname}
+                        <span
+                          onMouseEnter={() => changeBackground(profile._id)}
+                          onMouseLeave={resetBackground}
+                          style={{
+                            color:
+                              hoveredProfileId === profile._id
+                                ? "#007BFF"
+                                : "inherit",
+                            textDecoration:
+                              hoveredProfileId === profile._id
+                                ? "underline"
+                                : "none",
+                            transition: "color 0.3s, text-decoration 0.3s",
+                          }}
+                        >
+                          {profile.name}
+                        </span>{" "}
+                        <span
+                          onMouseEnter={() => changeBackground(profile._id)}
+                          onMouseLeave={resetBackground}
+                          style={{
+                            color:
+                              hoveredProfileId === profile._id
+                                ? "#007BFF"
+                                : "inherit",
+                            textDecoration:
+                              hoveredProfileId === profile._id
+                                ? "underline"
+                                : "none",
+                            transition: "color 0.3s, text-decoration 0.3s",
+                          }}
+                        >
+                          {profile.surname}
+                        </span>
                       </Link>
                     </Col>
                     <Col className="small">{profile.title}</Col>
@@ -62,10 +95,10 @@ const SecondProfileList = () => {
       </Card.Body>
       <Card.Footer
         className={`bg-${
-          isHovered ? "#e0e0e0 text-dark" : "white"
-        } text-center text-secondary  fw-bold`}
+          hoveredProfileId ? "#e0e0e0 text-dark" : "white"
+        } text-center text-secondary fw-bold`}
         style={{ cursor: "pointer" }}
-        onMouseEnter={changeBackground}
+        onMouseEnter={() => changeBackground("footer")}
         onMouseLeave={resetBackground}
       >
         Mostra tutto

@@ -29,7 +29,7 @@ const PersonalProfile = () => {
                 <h2>{`${dataProfile.name} ${dataProfile.surname}`}</h2>
                 {isMeRoute && (
                   <Link to="/settingsprofile" className="text-decoration-none">
-                    <HiOutlinePencil
+                    <HiOutlinePencil className="text-secondary"
                       style={{ fontSize: "1.5em", cursor: "pointer" }}
                     />
                   </Link>

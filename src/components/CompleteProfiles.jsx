@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileListAction } from "../redux/actions";
 import { Card, Row, Col, Button } from "react-bootstrap";
@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 import CompleteProfileAside from "./CompleteProfileAside";
 
 const CompleteProfileList = () => {
-  //   const [isHovered, setIsHovered] = useState(false);
+  const [hoveredProfileId, setHoveredProfileId] = useState(null);
 
-  //   function changeBackground() {
-  //     setIsHovered(true);
-  //   }
+  const changeBackground = (profileId) => {
+    setHoveredProfileId(profileId);
+  };
 
-  //   function resetBackground() {
-  //     setIsHovered(false);
-  //   }
+  const resetBackground = () => {
+    setHoveredProfileId(null);
+  };
 
   const dispatch = useDispatch();
   const profileList = useSelector((state) => state.profilelist.list);
@@ -32,7 +32,7 @@ const CompleteProfileList = () => {
       </Col>
       <Col lg={6}>
         <Row>
-          <Card className="my-4  ">
+          <Card className="my-4">
             <Card.Body>
               <Card.Title className="fs-3 text-center">
                 La tua Rete Contatti
@@ -45,17 +45,56 @@ const CompleteProfileList = () => {
                           src={profile.image}
                           alt="profilepic"
                           width={80}
-                          className="rounded-circle  "
+                          className="rounded-circle"
                         />
                       </Col>
                       <Col sm={9} md={7} className="pe-0 ps-4">
                         <Row className="flex-column">
-                          <Col className=" fw-bold  ">
+                          <Col className="fw-bold">
                             <Link
                               to={`/${profile._id}`}
-                              className="text-decoration-none  text-black fs-5"
+                              className="text-decoration-none text-black fs-5"
                             >
-                              {profile.name} {profile.surname}
+                              <span
+                                onMouseEnter={() =>
+                                  changeBackground(profile._id)
+                                }
+                                onMouseLeave={resetBackground}
+                                style={{
+                                  color:
+                                    hoveredProfileId === profile._id
+                                      ? "#007BFF"
+                                      : "inherit",
+                                  textDecoration:
+                                    hoveredProfileId === profile._id
+                                      ? "underline"
+                                      : "none",
+                                  transition:
+                                    "color 0.3s, text-decoration 0.3s",
+                                }}
+                              >
+                                {profile.name}
+                              </span>{" "}
+                              <span
+                                onMouseEnter={() =>
+                                  changeBackground(profile._id)
+                                }
+                                onMouseLeave={resetBackground}
+                                style={{
+                                  color:
+                                    hoveredProfileId === profile._id
+                                      ? "#007BFF"
+                                      : "inherit",
+                                  textDecoration:
+                                    hoveredProfileId === profile._id
+                                      ? "underline"
+                                      : "none",
+                                  transition:
+                                    "color 0.3s, text-decoration 0.3s",
+                                }}
+                              >
+                                {profile.surname}
+                              </span>
                             </Link>
                           </Col>
                           <Col className="small my-1">{profile.title}</Col>
@@ -70,15 +109,15 @@ const CompleteProfileList = () => {
                 : null}
             </Card.Body>
             {/* <Card.Footer
-            className={`bg-${
-              isHovered ? "#e0e0e0 text-dark" : "white"
-            } text-center text-secondary  fw-bold`}
-            style={{ cursor: "pointer" }}
-            onMouseEnter={changeBackground}
-            onMouseLeave={resetBackground}
-          >
-            Mostra tutto
-          </Card.Footer> */}
+              className={`bg-${
+                hoveredProfileId ? "#e0e0e0 text-dark" : "white"
+              } text-center text-secondary fw-bold`}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={() => changeBackground("footer")}
+              onMouseLeave={resetBackground}
+            >
+              Mostra tutto
+            </Card.Footer> */}
           </Card>
         </Row>
       </Col>
