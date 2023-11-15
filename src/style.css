@@ -1,7 +1,11 @@
 #mainContent {
   background-color: #fcf7ef;
 }
-.modal-modify{
+.modal-modify {
   position: absolute !important;
   top: 200px !important;
+}
+
+.Fs-8 {
+  font-size: 0.8rem;
 }

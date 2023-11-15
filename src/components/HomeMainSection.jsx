@@ -5,6 +5,10 @@ import { FaCommentDots } from "react-icons/fa";
 import { ImLoop } from "react-icons/im";
 import { IoPaperPlane } from "react-icons/io5";
 import ProfilePic from "../Assets/1660833954461.png";
+import { RxCross1 } from "react-icons/rx";
+import { HiDotsHorizontal } from "react-icons/hi";
+import formatDistance from "date-fns/formatDistance";
+import { FaGlobeAmericas } from "react-icons/fa";
 
 const HomeMainSection = () => {
   const [postArray, setPostArray] = useState([]);
@@ -51,41 +55,61 @@ const HomeMainSection = () => {
             key={r._id}
           >
             <Modal.Dialog>
-              <div className="d-flex ms-3 align-items-center">
-                <div>
-                  <img
-                    src={r.image ? r.image : ProfilePic}
-                    className="rounded-circle"
-                    alt="kitten"
-                    width={50}
-                  ></img>
-                </div>
-                <div>
-                  <h5 className="ms-3 mt-3">{r.username}</h5>
-                  <p className="mb-0 ms-3">{r.user.bio}</p>
-                  <p className="mb-0 ms-3">{r.updatedAt}</p>
+              <div className="d-flex align-items-center justify-content-between">
+                <div className="d-flex w-100 justify-content-between">
+                  <div className="d-flex">
+                    <div>
+                      <img
+                        src={r.image ? r.image : ProfilePic}
+                        className="rounded-circle"
+                        alt="kitten"
+                        width={50}
+                      ></img>
+                    </div>
+                    <div className="d-flex flex-column">
+                      <h6 className="ms-3 mb-0">{r.username}</h6>
+                      <p className="mb-0 ms-3 text-secondary Fs-8 ">
+                        {r.user.bio
+                          ? r.user.bio
+                          : Math.floor(Math.random() * 10000) + " Followers"}
+                      </p>
+                      <div className="d-flex  align-items-center">
+                        <span className="mb-0 ms-3 text-secondary Fs-8 ">
+                          {/* {format(new Date(r.updatedAt), "MM/dd/yyyy")} */}
+                          {formatDistance(new Date(r.updatedAt), new Date(), {
+                            addSuffix: true,
+                          })}
+                        </span>
+                        <FaGlobeAmericas className="text-secondary ms-2"></FaGlobeAmericas>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <HiDotsHorizontal className="text-secondary ms-2"></HiDotsHorizontal>
+                    <RxCross1 className="text-secondary ms-2"></RxCross1>
+                  </div>
                 </div>
               </div>
               <Modal.Body>
-                <p>{r.text}</p>
+                <p className="mt-3">{r.text}</p>
               </Modal.Body>
 
               <Modal.Footer className="d-flex justify-content-around">
                 <div>
-                  <FaThumbsUp></FaThumbsUp>
+                  <FaThumbsUp className="text-secondary"></FaThumbsUp>
                   <span className="ms-2">Consiglia</span>
                 </div>
 
                 <div>
-                  <FaCommentDots></FaCommentDots>
+                  <FaCommentDots className="text-secondary"></FaCommentDots>
                   <span className="ms-2">Commenta</span>
                 </div>
                 <div>
-                  <ImLoop></ImLoop>
+                  <ImLoop className="text-secondary"></ImLoop>
                   <span className="ms-2">Diffondi il post</span>
                 </div>
                 <div>
-                  <IoPaperPlane></IoPaperPlane>
+                  <IoPaperPlane className="text-secondary"></IoPaperPlane>
                   <span className="ms-2">Invia</span>
                 </div>
               </Modal.Footer>

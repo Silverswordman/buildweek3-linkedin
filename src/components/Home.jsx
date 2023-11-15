@@ -6,7 +6,7 @@ const Home = () => {
     <Container>
       <Row>
         <Col md={1}></Col>
-        <Col md={5}>
+        <Col md={6}>
           <HomeMainSection></HomeMainSection>
         </Col>
         <Col md={2}></Col>
