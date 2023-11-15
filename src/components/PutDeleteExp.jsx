@@ -14,7 +14,45 @@ const PutDeleteExp = (props) => {
     description: "",
   });
 
-  const deleteData = (prop) => {
+  const PutData = () => {
+    fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" +
+        UserId +
+        "/experiences/" +
+        props._Id,
+      {
+        method: "PUT",
+        body: JSON.stringify(obj),
+        headers: {
+          "Content-type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c",
+        },
+      }
+    )
+      .then((events) => {
+        console.log("oggetto modificato", events);
+        if (events.ok) {
+          alert("oggetto modificato");
+          // setObj({
+          //   role: "",
+          //   company: "",
+          //   startDate: "",
+          //   endDate: "",
+          //   area: "",
+          //   description: "",
+          // });
+        } else {
+          alert("errore");
+          throw new Error("errore nel post");
+        }
+      })
+      .catch((err) => {
+        console.log("si e verificato un errore", err);
+      });
+  };
+
+  const deleteData = () => {
     fetch(
       "https://striveschool-api.herokuapp.com/api/profile/" +
         UserId +
@@ -46,7 +84,7 @@ const PutDeleteExp = (props) => {
       <Form
         onSubmit={(e) => {
           e.preventDefault();
-          // PostData();
+          PutData();
           props.okPutFunction(false);
         }}
         className="w-75"
@@ -60,6 +98,7 @@ const PutDeleteExp = (props) => {
                 role: e.target.value,
               });
             }}
+            value={obj.role}
             className="border-dark-subtle"
             type="text"
             placeholder="Ruolo di Lavoro..."
@@ -74,6 +113,7 @@ const PutDeleteExp = (props) => {
                 company: e.target.value,
               });
             }}
+            value={obj.company}
             className="border-dark-subtle"
             type="text"
             placeholder="Azienda..."
@@ -88,6 +128,7 @@ const PutDeleteExp = (props) => {
                 startDate: e.target.value,
               });
             }}
+            value={obj.startDate}
             className="border-dark-subtle"
             type="date"
             placeholder=""
@@ -102,6 +143,7 @@ const PutDeleteExp = (props) => {
                 endDate: e.target.value,
               });
             }}
+            value={obj.endDate}
             className="border-dark-subtle"
             type="date"
             placeholder=""
@@ -116,6 +158,7 @@ const PutDeleteExp = (props) => {
                 area: e.target.value,
               });
             }}
+            value={obj.area}
             className="border-dark-subtle"
             type="text"
             placeholder="Dove..."
@@ -130,6 +173,7 @@ const PutDeleteExp = (props) => {
                 description: e.target.value,
               });
             }}
+            value={obj.description}
             name="postContent"
             rows={4}
             cols={4}
