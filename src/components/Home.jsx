@@ -11,7 +11,7 @@ const Home = () => {
         <Col md={3} className="mt-4">
           <HomeLeftSection></HomeLeftSection>
         </Col>
-        <Col md={6} className="mt-4">
+        <Col md={6} className="my-4">
           <HomeMainSection></HomeMainSection>
         </Col>
         <Col md={3} className="mt-4">

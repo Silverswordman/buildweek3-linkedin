@@ -46,12 +46,12 @@ const NavbarComp = () => {
     <Navbar
       bg="white"
       data-bs-theme="light"
-      className="  p-0 border-bottom justify-content-center  "
+      className="  p-0 border-bottom justify-content-center "
     >
-      <Nav className="align-items-baseline">
+      <Nav className="align-items-baseline  ">
         {/* NAVBARBRAND */}
 
-        <Link to="/" className="me-2 align-self-center ">
+        <Link to="/" className="me-2 align-self-center  ">
           <img src={Logo} alt="Logo" width={35} />
         </Link>
 
@@ -68,7 +68,7 @@ const NavbarComp = () => {
                 <BiSearchAlt2 className="fs-5" />
               </InputGroup.Text>
               <Form.Control
-                className="bg-secondary-subtle border-start-0  "
+                className="bg-secondary-subtle border-start-0  me-xl-5  "
                 type="search"
                 placeholder="Cerca"
                 aria-label="Search"
@@ -84,41 +84,41 @@ const NavbarComp = () => {
         </Nav.Item>
         <Link
           to="/"
-          className="nav-link d-flex flex-column align-items-center ps-0 ms-lg-5 me-lg-3"
+          className="nav-link d-flex flex-column align-items-center ps-0 ms-lg-5 me-lg-3 "
         >
-          <AiFillHome className="fs-4 ms-1  " />
-          <span className="small d-none d-lg-block"> Home</span>
+          <AiFillHome className="fs-4  ms-1 ms-lg-0 " />
+          <span className="small d-none d-lg-block "> Home</span>
         </Link>
         <Link
           to="/profile"
-          className="nav-link d-flex flex-column align-items-center px-lg-3"
+          className="nav-link d-flex flex-column align-items-center px-1 px-1 px-md-2 px-lg-3"
         >
           <HiUsers className="fs-4" />{" "}
           <span className="small d-none d-lg-block"> Rete</span>
         </Link>
         <Link
           to="/jobs"
-          className="nav-link d-flex flex-column align-items-center px-lg-3"
+          className="nav-link d-flex flex-column align-items-center px-1 px-1 px-md-2 px-lg-3"
         >
           <BsBriefcaseFill className="fs-4" />
           <span className="small d-none d-lg-block">Lavoro</span>
         </Link>
         <Link
           to="/"
-          className="nav-link d-flex flex-column align-items-center px-lg-3"
+          className="nav-link d-flex flex-column align-items-center px-1 px-1 px-md-2 px-lg-3"
         >
           <BsChatDotsFill className="fs-4" />
           <span className="small d-none d-lg-block"> Messaggistica</span>
         </Link>
         <Link
           to="/"
-          className="nav-link d-flex flex-column align-items-center px-lg-3"
+          className="nav-link d-flex flex-column align-items-center px-1 px-1 px-md-2 px-lg-3"
         >
           <BsFillBellFill className="fs-4" />
           <span className="small d-none d-lg-block"> Notifiche</span>
         </Link>
 
-        <Dropdown className="px-lg-3">
+        <Dropdown className="px-1 px-md-2 px-lg-3">
           <Dropdown.Toggle
             id="profile dropdown"
             variant="white"
@@ -156,12 +156,12 @@ const NavbarComp = () => {
 
         <Link
           to="/"
-          className="nav-link d-flex flex-column align-items-center border-start px-lg-3"
+          className="nav-link d-flex flex-column align-items-center border-start px-1 px-md-2 px-1 px-md-2 px-lg-3"
         >
           <BsGrid3X3GapFill className="fs-4 d-none d-sm-block" />
           <span className="small d-none d-lg-block"> per le aziende</span>
         </Link>
-        <Link className="text-secondary text-center px-lg-3 align-self-center d-none d-sm-block">
+        <Link className="text-secondary text-center px-1 px-1 px-md-2 px-lg-3 align-self-center d-none d-sm-block ">
           <small>
             Prova Premium <br></br>per 99,99 EUR
           </small>
@@ -176,12 +176,12 @@ const NavbarComp = () => {
             <div className="d-flex">
               <Link
                 to="/"
-                className="nav-link d-flex flex-column align-items-center border-start px-lg-3"
+                className="nav-link d-flex flex-column align-items-center border-start px-1 px-md-2 px-lg-3"
               >
                 <BsGrid3X3GapFill className="fs-4 " />
                 <span className="small d-none d-lg-block"> Per le aziende</span>
               </Link>
-              <Link className="text-secondary text-center px-lg-3 align-self-center  ">
+              <Link className="text-secondary text-center px-1 px-md-2 px-lg-3 align-self-center  ">
                 <small>
                   Prova Premium <br></br>per 99,99 EUR
                 </small>
