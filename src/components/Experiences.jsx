@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getExperiencesAction } from "../redux/actions";
 import PostExp from "./PostExp";
 import format from "date-fns/format";
-import { FaPen } from "react-icons/fa6";
+import { HiOutlinePencil } from "react-icons/hi";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { FaPlus } from "react-icons/fa";
+import { LiaPlusSolid } from "react-icons/lia";
 import PutDeleteExp from "./PutDeleteExp";
 import { Card } from "react-bootstrap";
 
@@ -32,11 +32,12 @@ const Experiences = (props) => {
         <div className="d-flex flex-column  ">
           <div className="d-flex justify-content-between align-items-center">
             <h2 className="">Esperienza</h2>
-            <FaPlus
+            <LiaPlusSolid
               onClick={() => {
                 setOk(true);
               }}
-              className="me-3"
+              className="me-3 fs-2 text-secondary"
+              style={{ cursor: "pointer" }}
             />
           </div>
           {Experience.map((r) => {
@@ -53,11 +54,13 @@ const Experiences = (props) => {
                   <div className="ms-3 w-100">
                     <div className="d-flex align-items-center justify-content-between">
                       <h4 className="mb-0">{r.role}</h4>
-                      <FaPen
+                      <HiOutlinePencil
                         onClick={() => {
                           setOkPut(true);
                           console.log(`ciao`);
                         }}
+                        className="fs-4 text-secondary"
+                        style={{ cursor: "pointer" }}
                       />
                     </div>
                     <p className="mb-0">{r.company}</p>
