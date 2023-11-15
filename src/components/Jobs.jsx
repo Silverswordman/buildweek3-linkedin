@@ -53,7 +53,7 @@ const Jobs = ({ disableScroll, onDisableScroll }) => {
     <Container>
       <Row>
         <Col md={5} className="px-0 overflow-scroll vh-100 overflow-x-hidden">
-          <Card className="mt-4">
+          {/* <Card>
             <Row>
               <Col className="text-center mt-2">
                 <h4>Company Name</h4>
@@ -68,7 +68,7 @@ const Jobs = ({ disableScroll, onDisableScroll }) => {
                 <h4>Publication Date</h4>
               </Col>
             </Row>
-          </Card>
+          </Card> */}
           <Card className="mt-2 ">
             <Row className="row-cols-1 ">
               {(searchedJobs && searchedJobs.length > 0
@@ -83,7 +83,7 @@ const Jobs = ({ disableScroll, onDisableScroll }) => {
                     style={{
                       cursor: "pointer",
                       backgroundColor:
-                        clickedJob === el._id ? "#e0e0e0" : "white",
+                        clickedJob === el._id ? "#d7e9fb" : "white",
                     }}
                   >
                     <SingleJob
