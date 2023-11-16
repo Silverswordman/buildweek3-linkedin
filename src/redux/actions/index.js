@@ -5,6 +5,7 @@ export const SET_PROFILE = "SET_PROFILE";
 export const SET_QUERY = "SET_QUERY";
 export const SEARCH_JOBS = "SEARCH_JOBS";
 export const RESET_QUERY = "RESET_QUERY";
+export const SET_KEY = "SET_KEY";
 
 const key = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c`;
 
@@ -125,6 +126,10 @@ export const setProfileAction = (obj) => {
 export const setQueryAction = (query) => ({
   type: SET_QUERY,
   payload: query,
+});
+export const setKeyAction = (key) => ({
+  type: SET_KEY,
+  payload: key,
 });
 
 export const getJobsListAction = (query) => {

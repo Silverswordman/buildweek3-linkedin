@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const PostExp = (props) => {
+  const key =
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c";
+
   const UserId = useSelector((state) => state.profile.profile._id);
   const [obj, setObj] = useState({
     role: "",
@@ -24,8 +27,7 @@ const PostExp = (props) => {
         body: JSON.stringify(obj),
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c",
+          Authorization: key,
         },
       }
     )
@@ -57,6 +59,7 @@ const PostExp = (props) => {
           e.preventDefault();
           PostData();
           props.okFunction(false);
+          props.underIdFunction(1);
         }}
         className="w-75"
       >
@@ -147,9 +150,9 @@ const PostExp = (props) => {
         </Form.Group>
 
         <div className="d-flex justify-content-between w-100">
-        <Button variant="primary" type="submit">
-        Aggiungi
-      </Button>
+          <Button variant="primary" type="submit">
+            Aggiungi
+          </Button>
         </div>
       </Form>
     </div>

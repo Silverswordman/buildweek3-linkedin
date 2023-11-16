@@ -115,139 +115,138 @@ const PutDeleteExp = (props) => {
     console.log(props._Id);
   }, []);
   return (
-    <div className="m-5 w-100 d-flex justify-content-start">
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          PutData();
-          props.okPutFunction(false);
-          // PostData();
-          props.underIdFunction(0);
-        }}
-        className="w-75"
-      >
-        <Form.Group className="mb-1" controlId="">
-          <Form.Label></Form.Label>
-          <Form.Control
-            onChange={(e) => {
-              setObj({
-                ...obj,
-                role: e.target.value,
-              });
-            }}
-            value={obj.role}
-            className="border-dark-subtle"
-            type="text"
-            placeholder="Ruolo di Lavoro..."
-          />
-        </Form.Group>
-        <Form.Group className="mb-1" controlId="">
-          <Form.Label></Form.Label>
-          <Form.Control
-            onChange={(e) => {
-              setObj({
-                ...obj,
-                company: e.target.value,
-              });
-            }}
-            value={obj.company}
-            className="border-dark-subtle"
-            type="text"
-            placeholder="Azienda..."
-           
-          />
-        </Form.Group>
-        <Form.Group className="mb-1" controlId="">
-          <Form.Label></Form.Label>
-          <Form.Control
-            onChange={(e) => {
-              setObj({
-                ...obj,
-                startDate: e.target.value,
-              });
-            }}
-            value={obj.startDate}
-            className="border-dark-subtle"
-            type="date"
-            placeholder=""
-          />
-        </Form.Group>
-        <Form.Group className="mb-1" controlId="">
-          <Form.Label></Form.Label>
-          <Form.Control
-            onChange={(e) => {
-              setObj({
-                ...obj,
-                endDate: e.target.value,
-              });
-            }}
-            value={obj.endDate}
-            className="border-dark-subtle"
-            type="date"
-            placeholder=""
-          />
-        </Form.Group>
-        <Form.Group className="mb-1" controlId="">
-          <Form.Label></Form.Label>
-          <Form.Control
-            onChange={(e) => {
-              setObj({
-                ...obj,
-                area: e.target.value,
-              });
-            }}
-            value={obj.area}
-            className="border-dark-subtle"
-            type="text"
-            placeholder="Dove..."
-          
-          />
-        </Form.Group>
-        <Form.Group className="mb-4" controlId="">
-          <Form.Label></Form.Label>
-          <textarea
-            onChange={(e) => {
-              setObj({
-                ...obj,
-                description: e.target.value,
-              });
-            }}
-            value={obj.description}
-            name="postContent"
-            rows={4}
-            cols={4}
-            className="mt-4 w-100 border-dark-subtle"
-          
-          />
-        </Form.Group>
+    <>
+      (
+      <div className="m-5 w-100 d-flex justify-content-start">
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
+            PutData();
+            props.underIdFunction(1);
+            // props.setOk1Function(` `);
+            props.okPutFunction(false);
+          }}
+          className="w-75"
+        >
+          <Form.Group className="mb-1" controlId="">
+            <Form.Label></Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setObj({
+                  ...obj,
+                  role: e.target.value,
+                });
+              }}
+              value={obj.role}
+              className="border-dark-subtle"
+              type="text"
+              placeholder="Ruolo di Lavoro..."
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="">
+            <Form.Label></Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setObj({
+                  ...obj,
+                  company: e.target.value,
+                });
+              }}
+              value={obj.company}
+              className="border-dark-subtle"
+              type="text"
+              placeholder="Azienda..."
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="">
+            <Form.Label></Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setObj({
+                  ...obj,
+                  startDate: e.target.value,
+                });
+              }}
+              value={obj.startDate}
+              className="border-dark-subtle"
+              type="date"
+              placeholder=""
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="">
+            <Form.Label></Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setObj({
+                  ...obj,
+                  endDate: e.target.value,
+                });
+              }}
+              value={obj.endDate}
+              className="border-dark-subtle"
+              type="date"
+              placeholder=""
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="">
+            <Form.Label></Form.Label>
+            <Form.Control
+              onChange={(e) => {
+                setObj({
+                  ...obj,
+                  area: e.target.value,
+                });
+              }}
+              value={obj.area}
+              className="border-dark-subtle"
+              type="text"
+              placeholder="Dove..."
+            />
+          </Form.Group>
+          <Form.Group className="mb-4" controlId="">
+            <Form.Label></Form.Label>
+            <textarea
+              onChange={(e) => {
+                setObj({
+                  ...obj,
+                  description: e.target.value,
+                });
+              }}
+              value={obj.description}
+              name="postContent"
+              rows={4}
+              cols={4}
+              className="mt-4 w-100 border-dark-subtle"
+            />
+          </Form.Group>
 
-        <div className="d-flex justify-content-between w-100">
-          <Button
-            onClick={() => {
-              props.okPutFunction(false);
-              props.underIdFunction(0);
-              deleteData();
-              // props.countFunction(true);
-            }}
-            variant="danger"
-          >
-            Elminia esperienza
-          </Button>
-          <Button
-            onClick={() => {
-              props.okPutFunction(false);
-              props.underIdFunction(0);
-              PutData();
-              // props.countFunction(true);
-            }}
-            variant="primary"
-            type="submit"
-          >
-            Modifca
-          </Button>
-        </div>
-      </Form>
-    </div>
+          <div className="d-flex justify-content-between w-100">
+            <Button
+              onClick={() => {
+                deleteData();
+                props.underIdFunction(1);
+                props.okPutFunction(false);
+                // props.countFunction(true);
+              }}
+              variant="danger"
+            >
+              Elminia esperienza
+            </Button>
+            <Button
+              onClick={() => {
+                props.okPutFunction(false);
+                props.underIdFunction(0);
+              }}
+              variant="primary"
+              type="submit"
+            >
+              Modifca
+            </Button>
+          </div>
+        </Form>
+      </div>
+      )
+    </>
   );
 };
 export default PutDeleteExp;

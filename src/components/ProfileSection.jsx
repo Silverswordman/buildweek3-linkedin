@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getProfileAction } from "../redux/actions";
+import { getProfileAction, setKeyAction } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
@@ -18,9 +18,10 @@ const ProfileSection = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setKeyAction(key));
     dispatch(getProfileAction(key));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch,key]);
+  }, [dispatch, key]);
 
   const profileId = useSelector((state) => state.profile.profile._id);
 

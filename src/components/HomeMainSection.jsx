@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { FaThumbsUp } from "react-icons/fa6";
 import { FaCommentDots } from "react-icons/fa";
 import { ImLoop } from "react-icons/im";
@@ -9,6 +9,7 @@ import { RxCross1 } from "react-icons/rx";
 import { HiDotsHorizontal } from "react-icons/hi";
 import formatDistance from "date-fns/formatDistance";
 import { FaGlobeAmericas } from "react-icons/fa";
+import HomePostModal from "./HomePostModal";
 
 const HomeMainSection = () => {
   const [postArray, setPostArray] = useState([]);
@@ -35,22 +36,29 @@ const HomeMainSection = () => {
         console.log("ERROR", error);
       });
   };
+  const [refersh, setRefresh] = useState(0);
+  const setRefreshFunction = (par) => {
+    setRefresh(refersh + par);
+  };
+  const hide = (par) => {
+    console.log(par);
+    postArray.filter((elem) => elem._id === par);
+    setRefreshFunction(1);
+  };
 
-  useEffect(
-    () => {
-      getPosts();
-      console.log(postArray);
-    },
-    [],
-    postArray
-  );
+  useEffect(() => {
+    getPosts();
+    console.log(postArray);
+  }, [refersh]);
 
   return (
     <>
+      <HomePostModal setRefreshFunction={setRefreshFunction} />
+
       {postArray.map((r) => {
         return (
           <div
-            className="bg-white m-3 p-3 border border-1r rounded"
+            className="bg-white my-3  border border-1 rounded p-4"
             style={{ display: "block", position: "initial" }}
             key={r._id}
           >
@@ -86,7 +94,13 @@ const HomeMainSection = () => {
                   </div>
                   <div>
                     <HiDotsHorizontal className="text-secondary ms-2"></HiDotsHorizontal>
-                    <RxCross1 className="text-secondary ms-2"></RxCross1>
+                    <RxCross1
+                      // onClick={() => {
+                      //   hide(r._id);
+                      //   console.log(r._id);
+                      // }}
+                      className="text-secondary ms-2"
+                    ></RxCross1>
                   </div>
                 </div>
               </div>
