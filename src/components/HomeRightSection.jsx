@@ -41,7 +41,7 @@ const HomeRightSection = () => {
   );
   return (
     <>
-      <div  style={{ display: "block", position: "initial" }}>
+      <div style={{ display: "block", position: "initial" }}>
         <div className="bg-white mb-2 py-2 border border-1r rounded ">
           <div className="d-flex justify-content-between align-items-center">
             <p className="mb-0 px-2 py-1 fw-semibold">LinkedIn Notizie</p>
@@ -83,7 +83,7 @@ const HomeRightSection = () => {
           </div>
         </div>
       </div>
-      <div className="m-3" style={{ display: "block", position: "initial" }}>
+      <div className="mt-3" style={{ display: "block", position: "initial" }}>
         <div className="bg-white my-2 py-2 border border-1r rounded ">
           <p className="Fs-8 text-secondary text-center mx-2 mt-3">
             Rimani al corrente con news e informazioni rilevanti

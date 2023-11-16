@@ -171,15 +171,31 @@ const NavbarComp = () => {
               </div>
             </Link>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-2 " className="fw-semibold">
-              Account
+            <Dropdown.Item className="fw-semibold">Account</Dropdown.Item>
+            <Dropdown.Item className="small fw-semibold text-secondary ">
+              Prova Premium per 99.99 Eur
             </Dropdown.Item>
-
+            <Dropdown.Item className="small text-secondary ">
+              Impostazioni e privacy
+            </Dropdown.Item>
+            <Dropdown.Item className="small text-secondary ">
+              Guida
+            </Dropdown.Item>
+            <Dropdown.Item className="small text-secondary ">
+              Lingua
+            </Dropdown.Item>
+            <Dropdown.Divider />
             <Dropdown.Item href="#/action-3" className="fw-semibold">
               Gestisci
             </Dropdown.Item>
+            <Dropdown.Item className="small text-secondary ">
+              Poste e Attività
+            </Dropdown.Item>
+            <Dropdown.Item className="small text-secondary ">
+              Account per la pubblicazione di off..
+            </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-4" className="fw-semibold">
+            <Dropdown.Item href="#/action-4" className="small text-secondary">
               Esci
             </Dropdown.Item>
           </Dropdown.Menu>
