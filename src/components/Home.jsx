@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <Container>
       <Row>
-        <HomeComments></HomeComments>
+        {/* <HomeComments></HomeComments> */}
         <Col md={3} className="mt-4">
           <HomeLeftSection></HomeLeftSection>
         </Col>
