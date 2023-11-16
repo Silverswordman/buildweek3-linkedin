@@ -13,7 +13,7 @@ const myReducer = combineReducers({
   experiences: experiencesReducer,
   query: queryReducer,
   jobs: jobsReducer,
-  key:keyReducer
+  key: keyReducer,
   personalprofile: personalProfileReducer,
 });
 
