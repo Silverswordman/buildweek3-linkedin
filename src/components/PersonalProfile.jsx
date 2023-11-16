@@ -2,6 +2,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { HiOutlinePencil } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
+import profileback from "../Assets/profilebackground.jpg";
 
 const PersonalProfile = () => {
   const dataProfile = useSelector((state) => state.profile.profile);
@@ -10,8 +11,9 @@ const PersonalProfile = () => {
   const isMeRoute = pathname === "/me";
 
   return (
-    <Card className="mt-4 p-3">
-      <Container>
+    <Card className="mt-4 ">
+      <img src={profileback} alt="profile background "></img>
+      <Card.Body className="p-4 pt-md-0">
         {dataProfile && Object.keys(dataProfile).length > 0 ? (
           <Row>
             <Col md={12}>
@@ -20,13 +22,26 @@ const PersonalProfile = () => {
                   src={dataProfile.image}
                   alt="profile-img"
                   width={150}
-                  className="rounded-circle"
+                  className="rounded-circle border border-white border-5 position-relative top-75 start-0 translate-middle-y d-none d-md-block" // immagine vp grande
+                />
+
+                <img
+                  src={dataProfile.image}
+                  alt="profile-img"
+                  width={140}
+                  className="rounded-circle border border-white border-5 position-absolute top-75 start-50 translate-middle d-none d-sm-block d-md-none" // immagine vp piccolo
+                />
+                <img
+                  src={dataProfile.image}
+                  alt="profile-img"
+                  width={140}
+                  className="rounded-circle border border-white border-5 position-absolute top-25 start-50 translate-middle d-sm-none " // immagine vp piccolissimo
                 />
               </div>
             </Col>
-            <Col md={12} className="mt-3">
+            <Col md={12} className="mt-5 mt-md-0">
               <div className="d-flex justify-content-between align-items-center">
-                <h2>{`${dataProfile.name} ${dataProfile.surname}`}</h2>
+                <h2 className="mt-5 mt-md-0">{`${dataProfile.name} ${dataProfile.surname}`}</h2>
                 {isMeRoute && (
                   <Link to="/settingsprofile" className="text-decoration-none">
                     <HiOutlinePencil
@@ -58,7 +73,7 @@ const PersonalProfile = () => {
             </Col>
           </Row>
         ) : null}
-      </Container>
+      </Card.Body>
     </Card>
   );
 };

@@ -8,13 +8,22 @@ import { Link } from "react-router-dom";
 
 const ProfileList = () => {
   const [hoveredProfileId, setHoveredProfileId] = useState(null);
+  const [hoveredShowAll, setHoveredShowAll] = useState(false);
 
-  const changeBackground = (profileId) => {
+  const changeBackgroundProfileId = (profileId) => {
     setHoveredProfileId(profileId);
   };
 
-  const resetBackground = () => {
+  const resetBackgroundProfileId = () => {
     setHoveredProfileId(null);
+  };
+
+  const changeBackgroundShowAll = () => {
+    setHoveredShowAll(true);
+  };
+
+  const resetBackgroundShowAll = () => {
+    setHoveredShowAll(false);
   };
 
   const dispatch = useDispatch();
@@ -27,7 +36,7 @@ const ProfileList = () => {
   return (
     <Card className="mt-3">
       <Card.Body>
-        <Card.Text>Altri Profili Consultati</Card.Text>
+        <Card.Text className="fw-semibold">Altri Profili Consultati</Card.Text>
         {profileList && profileList.length > 0
           ? profileList.slice(0, 10).map((profile) => (
               <Row key={profile._id} className="my-3">
@@ -47,8 +56,10 @@ const ProfileList = () => {
                         className="text-decoration-none text-black"
                       >
                         <span
-                          onMouseEnter={() => changeBackground(profile._id)}
-                          onMouseLeave={resetBackground}
+                          onMouseEnter={() =>
+                            changeBackgroundProfileId(profile._id)
+                          }
+                          onMouseLeave={resetBackgroundProfileId}
                           style={{
                             color:
                               hoveredProfileId === profile._id
@@ -78,13 +89,18 @@ const ProfileList = () => {
       </Card.Body>
       <Card.Footer
         className={`bg-${
-          hoveredProfileId ? "#e0e0e0 text-dark" : "white"
+          hoveredShowAll ? "#e0e0e0 text-dark" : "white"
         } text-center text-secondary fw-semibold`}
         style={{ cursor: "pointer" }}
-        onMouseEnter={() => changeBackground("footer")}
-        onMouseLeave={resetBackground}
+        onMouseEnter={changeBackgroundShowAll}
+        onMouseLeave={resetBackgroundShowAll}
       >
-        Mostra tutto
+        <Link
+                to="/profile"
+                className=" fw-semibold   text-secondary text-decoration-none "
+              >
+                Mostra Tutto
+              </Link>
       </Card.Footer>
     </Card>
   );

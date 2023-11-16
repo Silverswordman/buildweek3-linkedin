@@ -8,13 +8,22 @@ import { Link } from "react-router-dom";
 
 const SecondProfileList = () => {
   const [hoveredProfileId, setHoveredProfileId] = useState(null);
+  const [hoveredShowAll, setHoveredShowAll] = useState(false);
 
-  const changeBackground = (profileId) => {
+  const changeBackgroundProfileId = (profileId) => {
     setHoveredProfileId(profileId);
   };
 
-  const resetBackground = () => {
+  const resetBackgroundProfileId = () => {
     setHoveredProfileId(null);
+  };
+
+  const changeBackgroundShowAll = () => {
+    setHoveredShowAll(true);
+  };
+
+  const resetBackgroundShowAll = () => {
+    setHoveredShowAll(false);
   };
 
   const dispatch = useDispatch();
@@ -25,9 +34,9 @@ const SecondProfileList = () => {
   }, []);
 
   return (
-    <Card className="my-3">
+    <Card className="mt-3">
       <Card.Body>
-        <Card.Text>Persone che potresti conoscere</Card.Text>
+        <Card.Text className="fw-semibold">Altri Profili Consultati</Card.Text>
         {profileList && profileList.length > 0
           ? profileList.slice(13, 18).map((profile) => (
               <Row key={profile._id} className="my-3">
@@ -47,8 +56,10 @@ const SecondProfileList = () => {
                         className="text-decoration-none text-black"
                       >
                         <span
-                          onMouseEnter={() => changeBackground(profile._id)}
-                          onMouseLeave={resetBackground}
+                          onMouseEnter={() =>
+                            changeBackgroundProfileId(profile._id)
+                          }
+                          onMouseLeave={resetBackgroundProfileId}
                           style={{
                             color:
                               hoveredProfileId === profile._id
@@ -61,24 +72,7 @@ const SecondProfileList = () => {
                             transition: "color 0.3s, text-decoration 0.3s",
                           }}
                         >
-                          {profile.name}
-                        </span>{" "}
-                        <span
-                          onMouseEnter={() => changeBackground(profile._id)}
-                          onMouseLeave={resetBackground}
-                          style={{
-                            color:
-                              hoveredProfileId === profile._id
-                                ? "#007BFF"
-                                : "inherit",
-                            textDecoration:
-                              hoveredProfileId === profile._id
-                                ? "underline"
-                                : "none",
-                            transition: "color 0.3s, text-decoration 0.3s",
-                          }}
-                        >
-                          {profile.surname}
+                          {profile.name} {profile.surname}
                         </span>
                       </Link>
                     </Col>
@@ -95,13 +89,18 @@ const SecondProfileList = () => {
       </Card.Body>
       <Card.Footer
         className={`bg-${
-          hoveredProfileId ? "#e0e0e0 text-dark" : "white"
+          hoveredShowAll ? "#e0e0e0 text-dark" : "white"
         } text-center text-secondary fw-semibold`}
         style={{ cursor: "pointer" }}
-        onMouseEnter={() => changeBackground("footer")}
-        onMouseLeave={resetBackground}
+        onMouseEnter={changeBackgroundShowAll}
+        onMouseLeave={resetBackgroundShowAll}
       >
-        Mostra tutto
+        <Link
+          to="/profile"
+          className=" fw-semibold   text-secondary text-decoration-none "
+        >
+          Mostra Tutto
+        </Link>
       </Card.Footer>
     </Card>
   );

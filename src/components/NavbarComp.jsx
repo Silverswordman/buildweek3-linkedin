@@ -1,4 +1,4 @@
-import { Form, Nav, Navbar, Button, Row } from "react-bootstrap";
+import { Form, Nav, Navbar, Button, Row, Col } from "react-bootstrap";
 import Logo from "../Assets/logo2.webp";
 import { Link, useLocation } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
@@ -15,7 +15,7 @@ import {
 import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getJobsListAction,
   resetJobListAction,
@@ -41,6 +41,8 @@ const NavbarComp = () => {
       dispatch(setQueryAction(resetQuery));
     }
   }, [location, dispatch]);
+
+  const dataProfile = useSelector((state) => state.profile.profile);
 
   return (
     <Navbar
@@ -118,7 +120,7 @@ const NavbarComp = () => {
           <span className="small d-none d-lg-block"> Notifiche</span>
         </Link>
 
-        <Dropdown className="px-1 px-md-2 px-lg-3">
+        <Dropdown className="px-1 px-md-2 px-lg-3 ">
           <Dropdown.Toggle
             id="profile dropdown"
             variant="white"
@@ -133,24 +135,53 @@ const NavbarComp = () => {
             <span className="small d-none d-lg-block"> Tu</span>
           </Dropdown.Toggle>
 
-          <Dropdown.Menu>
+          <Dropdown.Menu
+            style={{ width: "250px" }}
+            className="px-2 py-3  dropdown-menu-end dropdown-menu-md-end "
+          >
             <Link to="/me" className="text-decoration-none ">
               <div className="d-flex flex-column ">
-                Profile
+                <Row>
+                  <Col sm={3}>
+                    <img
+                      src={dataProfile.image}
+                      alt="profileimg"
+                      width={55}
+                      className="rounded-circle"
+                    ></img>{" "}
+                  </Col>
+                  <Col sm={7} className="text-dark ">
+                    <Row className="flex-column small">
+                      <Col
+                        className=" fw-semibold fs-6"
+                        style={{ cursor: "pointer" }}
+                      >
+                        {dataProfile.name} {dataProfile.surname}
+                      </Col>
+                      <Col>{dataProfile.title}</Col>
+                    </Row>
+                  </Col>
+                </Row>
                 <Button
-                  className="btn-sm fw-bold rounded-pill "
-                  variant="outline-primary border-2"
+                  className="btn-sm fw-semibold rounded-pill "
+                  variant="outline-primary border-2 mt-2 py-0"
                 >
                   Visualizza Profilo
                 </Button>
               </div>
             </Link>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-2 ">Account</Dropdown.Item>
+            <Dropdown.Item href="#/action-2 " className="fw-semibold">
+              Account
+            </Dropdown.Item>
 
-            <Dropdown.Item href="#/action-3">Gestisci</Dropdown.Item>
+            <Dropdown.Item href="#/action-3" className="fw-semibold">
+              Gestisci
+            </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-4">Esci</Dropdown.Item>
+            <Dropdown.Item href="#/action-4" className="fw-semibold">
+              Esci
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
