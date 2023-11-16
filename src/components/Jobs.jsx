@@ -39,7 +39,9 @@ const Jobs = ({ disableScroll, onDisableScroll }) => {
   const [jobDetails, setJobDetails] = useState();
 
   useEffect(() => {
+    
     if (searchedJobs) {
+      // console.log(searchedJobs)
       setJobDetails(searchedJobs[0]);
     }
   }, [searchedJobs]);
@@ -51,8 +53,13 @@ const Jobs = ({ disableScroll, onDisableScroll }) => {
 
   return (
     <Container>
-      <Row>
-        <Col md={5} className="px-0 overflow-scroll vh-100 overflow-x-hidden">
+      <Row className="flex-column flex-md-row">
+        <Col
+          md={5}
+          className="px-0 overflow-scroll vh-100 overflow-x-hidden mt-3"
+          style={{ maxHeight: "90vh" }}
+        >
+          
           {/* <Card>
             <Row>
               <Col className="text-center mt-2">
@@ -96,7 +103,11 @@ const Jobs = ({ disableScroll, onDisableScroll }) => {
             </Row>
           </Card>
         </Col>
-        <Col className="px-0 overflow-scroll vh-100 overflow-x-hidden">
+        <Col
+          md={7}
+          className="px-0 overflow-scroll vh-100 overflow-x-hidden"
+          style={{ maxHeight: "90vh" }}
+        >
           {jobDetails && <JobDetails jobDetails={jobDetails} />}
         </Col>
       </Row>

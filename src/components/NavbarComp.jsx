@@ -37,11 +37,10 @@ const NavbarComp = () => {
     }
   };
 
-  useEffect(()=>{
-    dispatch(getPersonalProfileAction())
-  },[])
-  const personalProfile = useSelector(state=>state.personalprofile.account)
-
+  useEffect(() => {
+    dispatch(getPersonalProfileAction());
+  }, []);
+  const personalProfile = useSelector((state) => state.personalprofile.account);
 
   useEffect(() => {
     if (location.pathname !== "/jobs") {
@@ -134,11 +133,11 @@ const NavbarComp = () => {
             className="d-flex flex-column align-items-center  "
           >
             <img
-              src={Logo}
-              alt="logo"
+              src={personalProfile.image}
+              alt="profileimg"
               width={25}
               className="rounded-circle"
-            ></img>
+            ></img>{" "}
             <span className="small d-none d-lg-block"> Tu</span>
           </Dropdown.Toggle>
 
