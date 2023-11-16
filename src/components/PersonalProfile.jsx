@@ -22,6 +22,7 @@ const PersonalProfile = () => {
                   src={dataProfile.image}
                   alt="profile-img"
                   width={150}
+                  height={150}
                   className="rounded-circle border border-white border-5 position-relative top-75 start-0 translate-middle-y d-none d-md-block" // immagine vp grande
                 />
 
@@ -29,12 +30,14 @@ const PersonalProfile = () => {
                   src={dataProfile.image}
                   alt="profile-img"
                   width={140}
+                  height={140}
                   className="rounded-circle border border-white border-5 position-absolute top-75 start-50 translate-middle d-none d-sm-block d-md-none" // immagine vp piccolo
                 />
                 <img
                   src={dataProfile.image}
                   alt="profile-img"
                   width={140}
+                  height={140}
                   className="rounded-circle border border-white border-5 position-absolute top-25 start-50 translate-middle d-sm-none " // immagine vp piccolissimo
                 />
               </div>
