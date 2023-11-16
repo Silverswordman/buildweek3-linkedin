@@ -47,7 +47,7 @@ const HomeMainSection = () => {
 
   return (
     <>
-      {postArray.map((r) => {
+      {postArray.reverse().map((r) => {
         return (
           <div
             className="bg-white mt-1 p-3 border border-1r rounded"

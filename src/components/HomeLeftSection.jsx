@@ -38,7 +38,7 @@ const HomeLeftSection = () => {
     return () => {
       window.removeEventListener("resize", updateContainerSize);
     };
-  }, [profileObj]);
+  }, []);
 
   const updateContainerSize = () => {
     const container = containerRef.current;
