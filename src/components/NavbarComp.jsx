@@ -36,7 +36,8 @@ const NavbarComp = () => {
       console.log("non sei nella pagina giusta");
     }
   };
-
+  
+  
   useEffect(()=>{
     dispatch(getPersonalProfileAction())
   },[])
@@ -154,6 +155,7 @@ const NavbarComp = () => {
                       src={personalProfile.image}
                       alt="profileimg"
                       width={55}
+                      height={55}
                       className="rounded-circle"
                     ></img>{" "}
                   </Col>
