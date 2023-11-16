@@ -17,7 +17,7 @@ const PersonalProfile = () => {
         {dataProfile && Object.keys(dataProfile).length > 0 ? (
           <Row>
             <Col md={12}>
-              <div>
+              <div >
                 <img
                   src={dataProfile.image}
                   alt="profile-img"

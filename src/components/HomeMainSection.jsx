@@ -64,6 +64,7 @@ const HomeMainSection = () => {
                         className="rounded-circle"
                         alt="kitten"
                         width={50}
+                        height={50}
                       ></img>
                     </div>
                     <div className="d-flex flex-column">
