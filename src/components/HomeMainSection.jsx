@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { FaThumbsUp } from "react-icons/fa6";
 import { FaCommentDots } from "react-icons/fa";
 import { ImLoop } from "react-icons/im";
