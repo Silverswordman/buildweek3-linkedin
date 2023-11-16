@@ -36,11 +36,13 @@ const NavbarComp = () => {
       console.log("non sei nella pagina giusta");
     }
   };
+  
+  
+  useEffect(()=>{
+    dispatch(getPersonalProfileAction())
+  },[])
+  const personalProfile = useSelector(state=>state.personalprofile.account)
 
-  useEffect(() => {
-    dispatch(getPersonalProfileAction());
-  }, []);
-  const personalProfile = useSelector((state) => state.personalprofile.account);
 
   useEffect(() => {
     if (location.pathname !== "/jobs") {
@@ -153,6 +155,7 @@ const NavbarComp = () => {
                       src={personalProfile.image}
                       alt="profileimg"
                       width={55}
+                      height={55}
                       className="rounded-circle"
                     ></img>{" "}
                   </Col>

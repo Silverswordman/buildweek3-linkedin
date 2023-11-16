@@ -6,6 +6,7 @@ export const SET_QUERY = "SET_QUERY";
 export const SEARCH_JOBS = "SEARCH_JOBS";
 export const RESET_QUERY = "RESET_QUERY";
 export const GET_PERSONAL_PROFILE = "GET_PERSONAL_PROFILE";
+export const SET_IMAGE = "SET_IMAGE";
 
 const key = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c`;
 
@@ -116,6 +117,7 @@ export const setProfileAction = (obj) => {
           type: SET_PROFILE,
           payload: profile,
         });
+        dispatch(getPersonalProfileAction());
       })
       .catch((err) => {
         console.log("errore", err);
@@ -174,6 +176,40 @@ export const getPersonalProfileAction = () => {
           type: GET_PERSONAL_PROFILE,
           payload: profile,
         });
+      })
+      .catch((err) => {
+        console.log("errore", err);
+      });
+  };
+};
+
+export const setImageProfileAction = (id, formData) => {
+  return async (dispatch) => {
+    fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/picture`, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: key,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(
+            "errore nel caricamento dell' immagine",
+            res.status,
+            res.statusText
+          );
+        }
+      })
+      .then((data) => {
+        const imageUrl = data?.imageUrl || "";
+        dispatch({
+          type: SET_IMAGE,
+          payload: imageUrl,
+        });
+        dispatch(getPersonalProfileAction());
       })
       .catch((err) => {
         console.log("errore", err);
