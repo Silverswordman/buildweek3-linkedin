@@ -31,6 +31,30 @@ const HomeRightSection = () => {
       });
   };
 
+  const [hoveredCol, setHoveredCol] = useState(null);
+  const handleMouseEnter = (colIndex) => {
+    setHoveredCol(colIndex);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredCol(null);
+  };
+
+  const getColStyle = (colIndex) => {
+    const baseStyle = {
+      cursor: "pointer",
+    };
+
+    if (colIndex === hoveredCol) {
+      return {
+        ...baseStyle,
+        backgroundColor: "#e0e0e0",
+      };
+    }
+
+    return baseStyle;
+  };
+
   useEffect(
     () => {
       getProfiles();
@@ -48,29 +72,54 @@ const HomeRightSection = () => {
             <BsFillInfoSquareFill className=" me-2"></BsFillInfoSquareFill>
           </div>
           <ul className="me-2">
-            <li className="Fs-9 mb-1">
+            <li
+              className="Fs-9 mb-1"
+              style={getColStyle(1)}
+              onMouseEnter={() => handleMouseEnter(1)}
+              onMouseLeave={handleMouseLeave}
+            >
               <p className="mb-0 fw-semibold">
                 La "Sindrome della Papera" ci riguarda
               </p>
               <p className="mb-0 text-secondary Fs-8">18 ore fa</p>
             </li>
-            <li className="Fs-9 mb-1">
+            <li
+              className="Fs-9 mb-1"
+              style={getColStyle(2)}
+              onMouseEnter={() => handleMouseEnter(2)}
+              onMouseLeave={handleMouseLeave}
+            >
               <p className="mb-0 fw-semibold">
                 Esselunga ora compete con Tannico
               </p>
               <p className="mb-0 text-secondary Fs-8">19 ore fa</p>
             </li>
-            <li className="Fs-9 mb-1">
+            <li
+              className="Fs-9 mb-1"
+              style={getColStyle(3)}
+              onMouseEnter={() => handleMouseEnter(3)}
+              onMouseLeave={handleMouseLeave}
+            >
               <p className="mb-0 fw-semibold">Le Telco peggiorano ancora</p>
               <p className="mb-0 text-secondary Fs-8">1 ora fa</p>
             </li>
             <li className="Fs-9 mb-1">
-              <p className="mb-0 fw-semibold">
+              <p
+                className="mb-0 fw-semibold"
+                style={getColStyle(4)}
+                onMouseEnter={() => handleMouseEnter(4)}
+                onMouseLeave={handleMouseLeave}
+              >
                 Un mercato del lavoroche invecchia
               </p>
               <p className="mb-0 text-secondary Fs-8">1 giorno fa</p>
             </li>
-            <li className="Fs-9 mb-1">
+            <li
+              className="Fs-9 mb-1"
+              style={getColStyle(5)}
+              onMouseEnter={() => handleMouseEnter(5)}
+              onMouseLeave={handleMouseLeave}
+            >
               <p className="mb-0 fw-semibold">
                 L'industria europea sta adottando il 5G
               </p>
