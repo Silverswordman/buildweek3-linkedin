@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getJobsListAction,
+  getPersonalProfileAction,
   resetJobListAction,
   setQueryAction,
 } from "../redux/actions";
@@ -35,6 +36,12 @@ const NavbarComp = () => {
       console.log("non sei nella pagina giusta");
     }
   };
+
+  useEffect(()=>{
+    dispatch(getPersonalProfileAction())
+  },[])
+  const personalProfile = useSelector(state=>state.personalprofile.account)
+
 
   useEffect(() => {
     if (location.pathname !== "/jobs") {
@@ -144,7 +151,7 @@ const NavbarComp = () => {
                 <Row>
                   <Col sm={3}>
                     <img
-                      src={dataProfile.image}
+                      src={personalProfile.image}
                       alt="profileimg"
                       width={55}
                       className="rounded-circle"
@@ -156,9 +163,9 @@ const NavbarComp = () => {
                         className=" fw-semibold fs-6"
                         style={{ cursor: "pointer" }}
                       >
-                        {dataProfile.name} {dataProfile.surname}
+                        {personalProfile.name} {personalProfile.surname}
                       </Col>
-                      <Col>{dataProfile.title}</Col>
+                      <Col>{personalProfile.title}</Col>
                     </Row>
                   </Col>
                 </Row>
