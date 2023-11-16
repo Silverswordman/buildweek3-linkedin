@@ -12,6 +12,7 @@ import LicenseCard from "./LicenseCard";
 import CompetenzeCard from "./CompetenzeCard";
 import ProfileList from "./ProfileList";
 import SecondProfileList from "./SecondProfileList";
+import ProfileFooter from "./ProfileFooter";
 
 const ProfileSection = () => {
   const { key } = useParams();
@@ -27,8 +28,8 @@ const ProfileSection = () => {
 
   return (
     <Container fluid>
-      <Row className="justify-content-center mt-4">
-        <Col md={6}>
+      <Row className="justify-content-center ">
+        <Col md={7} lg={6}>
           <PersonalProfile queryKey={key} />
           <Activities />
           <Experiences profileId={profileId} />
@@ -36,12 +37,13 @@ const ProfileSection = () => {
           <LicenseCard />
           <CompetenzeCard />
         </Col>
-        <Col md={2} className="pe-0">
+        <Col md={4} lg={2} className="pe-0">
           <AsideProfileSection />
           <ProfileList />
           <SecondProfileList />
         </Col>
       </Row>
+      <ProfileFooter />
     </Container>
   );
 };

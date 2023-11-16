@@ -48,5 +48,11 @@
 }
 .kkk {
   word-break: break-all;
-  white-space: normal;
+  white-space: normal;}
+.number {
+  font-size: 0.8rem;
+  color: #309bf8;
+}
+.Fs-9 {
+  font-size: 0.9rem;
 }

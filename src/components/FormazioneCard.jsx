@@ -9,7 +9,7 @@ const FormazioneCard = () => {
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>
-            <Col lg={6} className="fw-bold ">
+            <Col lg={6} className="fw-semibold ">
               Formazione
             </Col>
 
@@ -37,7 +37,7 @@ const FormazioneCard = () => {
               ></img>
             </Col>
             <Col lg={10}>
-              <p className="fw-bold fs-5 my-0 ">Epicode</p>
+              <p className="fw-semibold fs-5 my-0 ">Epicode</p>
               <p className=" my-0 small ">Corso Front-End Web Development</p>
               <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
               <p className=" my-0 small ">Votazione 100/100</p>
@@ -53,7 +53,7 @@ const FormazioneCard = () => {
               ></img>
             </Col>
             <Col lg={10}>
-              <p className="fw-bold fs-5 my-0 ">Epicode</p>
+              <p className="fw-semibold fs-5 my-0 ">Epicode</p>
               <p className=" my-0 small ">Corso Front-End Web Development</p>
               <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
               <p className=" my-0 small ">Votazione 100/100</p>
@@ -69,7 +69,7 @@ const FormazioneCard = () => {
               ></img>
             </Col>
             <Col lg={10}>
-              <p className="fw-bold fs-5 my-0 ">Epicode</p>
+              <p className="fw-semibold fs-5 my-0 ">Epicode</p>
               <p className=" my-0 small ">Corso Front-End Web Development</p>
               <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
               <p className=" my-0 small ">Votazione 100/100</p>

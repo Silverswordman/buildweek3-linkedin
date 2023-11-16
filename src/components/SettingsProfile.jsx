@@ -4,6 +4,7 @@ import {AiOutlineRollback} from 'react-icons/ai'
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { setProfileAction } from "../redux/actions"
+import ProfileImage from "./ProfileImage"
 
 
 const SettingsProfile = ()=>{
@@ -46,6 +47,7 @@ const SettingsProfile = ()=>{
     }
 
     useEffect(()=>{
+      
       getProfileData()
     },[])
 
@@ -66,6 +68,7 @@ const SettingsProfile = ()=>{
                     <AiOutlineRollback style={{fontSize:'1.5em', cursor:'pointer'}}/>
                     </Link>
                     </div>
+                    <ProfileImage/>
                     <Form onSubmit={handleFormSubmit}>
                         <Form.Group className="mb-3">
                           <Form.Label>Nome</Form.Label>
@@ -90,10 +93,6 @@ const SettingsProfile = ()=>{
                         <Form.Group className="mb-3">
                           <Form.Label>Occupazione</Form.Label>
                           <Form.Control type="text" value={data.title} onChange={(e)=>setData({...data, title: e.target.value})} placeholder="Scrivi che lavoro fai" />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                          <Form.Label>Immagine profilo</Form.Label>
-                          <Form.Control type="text" value={data.image} onChange={(e)=>setData({...data, image: e.target.value})} placeholder="Metti l'url dell'immagine" />
                         </Form.Group>
                         <Button type="submit">Invio dati</Button>
                     </Form>

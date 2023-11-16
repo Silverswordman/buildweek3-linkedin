@@ -9,7 +9,7 @@ const LicenseCard = () => {
       <Card.Body className="p-4 l">
         <Card.Title>
           <Row>
-            <Col lg={6} className="fw-bold ">
+            <Col lg={6} className="fw-semibold ">
               Licenze e Certificazioni
             </Col>
 
@@ -37,7 +37,7 @@ const LicenseCard = () => {
               ></img>
             </Col>
             <Col lg={10}>
-              <p className="fw-bold fs-5 my-0 "></p>
+              <p className="fw-semibold fs-5 my-0 "></p>
               <p className=" my-0 small ">Certificazione Lingua Inglese</p>
               <p className=" my-0 small ">Votazione 100/100</p>
             </Col>

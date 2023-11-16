@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getExperiencesAction } from "../redux/actions";
+import { useDispatch } from "react-redux";
+
 import PostExp from "./PostExp";
 import format from "date-fns/format";
-import { FaPen } from "react-icons/fa6";
+import { HiOutlinePencil } from "react-icons/hi";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { FaPlus } from "react-icons/fa";
+import { LiaPlusSolid } from "react-icons/lia";
 import PutDeleteExp from "./PutDeleteExp";
 import empty from "../Assets/linkedin.png";
 import { Card } from "react-bootstrap";
@@ -21,9 +21,9 @@ const Experiences = (props) => {
 
   const [ok, setOk] = useState(false);
   const [ok1, setOk1] = useState(``);
-  const setOk1Function=(par)=>{
-    setOk1(par)
-  }
+  const setOk1Function = (par) => {
+    setOk1(par);
+  };
   const [okPut, setOkPut] = useState(false);
   const [underId, setUnderId] = useState(0);
 
@@ -73,7 +73,7 @@ const Experiences = (props) => {
         <div className="d-flex flex-column  ">
           <div className="d-flex justify-content-between align-items-center">
             <h2 className="">Esperienza</h2>
-            <FaPlus
+            <LiaPlusSolid
               onClick={() => {
                 setOk(true);
               }}
@@ -108,7 +108,7 @@ const Experiences = (props) => {
 
                       <Modal.Body>
                         <PutDeleteExp
-                         setOk1Function={setOk1Function}
+                          setOk1Function={setOk1Function}
                           underIdFunction={underIdFunction}
                           countFunction={countFunction}
                           okPutFunction={okPutFunction}
@@ -130,7 +130,7 @@ const Experiences = (props) => {
                   <div className="ms-3 w-100">
                     <div className="d-flex align-items-center justify-content-between">
                       <h4 className="mb-0">{r.role}</h4>
-                      <FaPen
+                      <HiOutlinePencil
                         onClick={() => {
                           setOk1(r._id);
                         }}
@@ -151,6 +151,31 @@ const Experiences = (props) => {
                   {/* <hr className="bg-black w-100 m-0"></hr> */}
                 </div>
                 {/* <hr className="bg-black w-100 m-0"></hr> */}
+                {okPut && (
+                  <div
+                    className="modal show modal-modify"
+                    style={{ display: "block", position: "initial" }}
+                  >
+                    <Modal.Dialog>
+                      <Modal.Header
+                        closeButton
+                        onClick={() => {
+                          setOkPut(false);
+                        }}
+                      >
+                        <Modal.Title>Modifica esperienza</Modal.Title>
+                      </Modal.Header>
+
+                      <Modal.Body>
+                        <PutDeleteExp
+                          countFunction={countFunction}
+                          okPutFunction={okPutFunction}
+                          _Id={r._id}
+                        />
+                      </Modal.Body>
+                    </Modal.Dialog>
+                  </div>
+                )}
               </div>
             );
           })}
