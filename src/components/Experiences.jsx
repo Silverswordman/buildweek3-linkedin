@@ -10,11 +10,15 @@ import { LiaPlusSolid } from "react-icons/lia";
 import PutDeleteExp from "./PutDeleteExp";
 import empty from "../Assets/linkedin.png";
 import { Card } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 const Experiences = (props) => {
   const key =
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c";
 
+  const location = useLocation();
+  const { pathname } = useLocation();
+  const isMeRoute = pathname === "/me";
   const dispatch = useDispatch();
   // const Experience = useSelector((state) => state.experiences.content);
   const [Experience, setExperience] = useState([]);
@@ -73,12 +77,14 @@ const Experiences = (props) => {
         <div className="d-flex flex-column  ">
           <div className="d-flex justify-content-between align-items-center">
             <h2 className="">Esperienza</h2>
-            <LiaPlusSolid
-              onClick={() => {
-                setOk(true);
-              }}
-              className="me-3"
-            />
+            {isMeRoute && (
+              <LiaPlusSolid
+                onClick={() => {
+                  setOk(true);
+                }}
+                className="me-3"
+              />
+            )}
           </div>
           {Experience.map((r) => {
             return (

@@ -15,6 +15,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import formatDistance from "date-fns/formatDistance";
 import { FaGlobeAmericas } from "react-icons/fa";
 import DeletePutPostModal from "./DeletePutPostModal";
+import { useLocation } from "react-router-dom";
 
 const Activities = (props) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -24,6 +25,7 @@ const Activities = (props) => {
   const [showAdd, setShowAdd] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [refresh, setRefresh] = useState(0);
+  const location = useLocation();
 
   const setRefreshFunction = (par) => {
     setRefresh(refresh + par);
@@ -66,7 +68,7 @@ const Activities = (props) => {
         console.log("posts", data);
         const a = data.filter((elem) => elem.username === profileData.username);
         setPostArray(a);
-     
+
         console.log(postArray);
       })
       .catch((error) => {
@@ -101,173 +103,179 @@ const Activities = (props) => {
     getPosts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showAdd, showDelete, refresh]);
+  if (location === "/me") {
+    return (
+      <>
+        <Card className="mt-3">
+          <Card.Body className="p-4 l">
+            <Card.Title>
+              <Row>
+                <Col lg={6} className="fw-bold ">
+                  Attività
+                </Col>
 
-  return (
-    <>
-      <Card className="mt-3">
-        <Card.Body className="p-4 l">
-          <Card.Title>
-            <Row>
-              <Col lg={6} className="fw-bold ">
-                Attività
-              </Col>
-
-              <Col lg={6} className="text-end ">
-                <Button
-                  onClick={() => {
-                    setShowAdd(true);
-                  }}
-                  variant="outline-primary  "
-                  className="rounded-pill border-1 py-1 px-3 me-3 fw-bold "
-                >
-                  Crea un post
-                </Button>{" "}
-                <HiOutlinePencil
-                  className=" fs-4 text-secondary  "
-                  style={{ cursor: "pointer" }}
-                />
-              </Col>
-            </Row>
-          </Card.Title>
-          <Card.Text
-            className="text-primary   fw-bold small "
-            style={{ cursor: "pointer" }}
-          >
-            20 follower
-          </Card.Text>
-        </Card.Body>
-        {activityok && (
-          <Card.Footer
-            className={`bg-${
-              isHovered ? "secondary-subtle text-dark" : "white"
-            } text-center text-secondary  fw-bold`}
-            style={{ cursor: "pointer" }}
-            onMouseEnter={changeBackground}
-            onMouseLeave={resetBackground}
-            onClick={() => {
-              getPosts();
-              setActivityok(false);
-            }}
-          >
-            Mostra tutte le attività <FaArrowRight />
-          </Card.Footer>
-        )}
-        {activityok === false && (
-          <Card.Footer
-            className={`bg-${
-              isHovered ? "secondary-subtle text-dark" : "white"
-            } text-center text-secondary  fw-bold`}
-            style={{ cursor: "pointer" }}
-            onMouseEnter={changeBackground}
-            onMouseLeave={resetBackground}
-            onClick={() => {
-              setActivityok(true);
-            }}
-          >
-            Mostra Meno <FaArrowRight />
-          </Card.Footer>
-        )}
-      </Card>
-      <div className="w-75">
-        <AddPostModal
-          show={showAdd}
-          setShowAddFunc={setShowAddFunc}
-          profileData={profileData}
-        />
-      </div>
-
-      {activityok === false &&
-        postArray.map((r) => {
-          return (
-            <div
-              className="bg-white my-3 p-3 border border-1 rounded"
-              style={{ display: "block", position: "initial" }}
-              key={r._id}
+                <Col lg={6} className="text-end ">
+                  <Button
+                    onClick={() => {
+                      setShowAdd(true);
+                    }}
+                    variant="outline-primary  "
+                    className="rounded-pill border-1 py-1 px-3 me-3 fw-bold "
+                  >
+                    Crea un post
+                  </Button>{" "}
+                  <HiOutlinePencil
+                    className=" fs-4 text-secondary  "
+                    style={{ cursor: "pointer" }}
+                  />
+                </Col>
+              </Row>
+            </Card.Title>
+            <Card.Text
+              className="text-primary   fw-bold small "
+              style={{ cursor: "pointer" }}
             >
-              <Modal.Dialog>
-                <div className="d-flex align-items-center justify-content-between">
-                  <div className="d-flex w-100 justify-content-between">
-                    <div className="d-flex">
-                      <div>
-                        <img
-                          src={r.image ? r.image : ProfilePic}
-                          className="rounded-circle"
-                          alt="kitten"
-                          width={50}
-                        ></img>
-                      </div>
-                      <div className="d-flex flex-column">
-                        <h6 className="ms-3 mb-0">{r.username}</h6>
-                        <p className="mb-0 ms-3 text-secondary Fs-8 w-100 ">
-                          {r.user.bio
-                            ? r.user.bio
-                            : Math.floor(Math.random() * 10000) + " Followers"}
-                        </p>
-                        <div className="d-flex  align-items-center">
-                          <span className="mb-0 ms-3 text-secondary Fs-8 ">
-                            {/* {format(new Date(r.updatedAt), "MM/dd/yyyy")} */}
-                            {formatDistance(new Date(r.updatedAt), new Date(), {
-                              addSuffix: true,
-                            })}
-                          </span>
-                          <FaGlobeAmericas className="text-secondary ms-2"></FaGlobeAmericas>
+              20 follower
+            </Card.Text>
+          </Card.Body>
+          {activityok && (
+            <Card.Footer
+              className={`bg-${
+                isHovered ? "secondary-subtle text-dark" : "white"
+              } text-center text-secondary  fw-bold`}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={changeBackground}
+              onMouseLeave={resetBackground}
+              onClick={() => {
+                getPosts();
+                setActivityok(false);
+              }}
+            >
+              Mostra tutte le attività <FaArrowRight />
+            </Card.Footer>
+          )}
+          {activityok === false && (
+            <Card.Footer
+              className={`bg-${
+                isHovered ? "secondary-subtle text-dark" : "white"
+              } text-center text-secondary  fw-bold`}
+              style={{ cursor: "pointer" }}
+              onMouseEnter={changeBackground}
+              onMouseLeave={resetBackground}
+              onClick={() => {
+                setActivityok(true);
+              }}
+            >
+              Mostra Meno <FaArrowRight />
+            </Card.Footer>
+          )}
+        </Card>
+        <div className="w-75">
+          <AddPostModal
+            show={showAdd}
+            setShowAddFunc={setShowAddFunc}
+            profileData={profileData}
+          />
+        </div>
+
+        {activityok === false &&
+          postArray.map((r) => {
+            return (
+              <div
+                className="bg-white my-3 p-3 border border-1 rounded"
+                style={{ display: "block", position: "initial" }}
+                key={r._id}
+              >
+                <Modal.Dialog>
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="d-flex w-100 justify-content-between">
+                      <div className="d-flex">
+                        <div>
+                          <img
+                            src={r.image ? r.image : ProfilePic}
+                            className="rounded-circle"
+                            alt="kitten"
+                            width={50}
+                          ></img>
+                        </div>
+                        <div className="d-flex flex-column">
+                          <h6 className="ms-3 mb-0">{r.username}</h6>
+                          <p className="mb-0 ms-3 text-secondary Fs-8 w-100 ">
+                            {r.user.bio
+                              ? r.user.bio
+                              : Math.floor(Math.random() * 10000) +
+                                " Followers"}
+                          </p>
+                          <div className="d-flex  align-items-center">
+                            <span className="mb-0 ms-3 text-secondary Fs-8 ">
+                              {/* {format(new Date(r.updatedAt), "MM/dd/yyyy")} */}
+                              {formatDistance(
+                                new Date(r.updatedAt),
+                                new Date(),
+                                {
+                                  addSuffix: true,
+                                }
+                              )}
+                            </span>
+                            <FaGlobeAmericas className="text-secondary ms-2"></FaGlobeAmericas>
+                          </div>
                         </div>
                       </div>
+                      <div>
+                        <HiDotsHorizontal className="text-secondary ms-2"></HiDotsHorizontal>
+                        <RxCross1
+                          onClick={() => {
+                            setShowDelete(true);
+                            setOk3(r._id);
+                          }}
+                          className="text-secondary ms-2"
+                        ></RxCross1>
+                      </div>
+                    </div>
+                  </div>
+                  <Modal.Body>
+                    <p className="w-100  mt-3 kkk">{r.text}</p>
+                  </Modal.Body>
+
+                  <Modal.Footer className="d-flex justify-content-around">
+                    <div>
+                      <FaThumbsUp className="text-secondary"></FaThumbsUp>
+                      <span className="ms-2">Consiglia</span>
+                    </div>
+
+                    <div>
+                      <FaCommentDots className="text-secondary"></FaCommentDots>
+                      <span className="ms-2">Commenta</span>
                     </div>
                     <div>
-                      <HiDotsHorizontal className="text-secondary ms-2"></HiDotsHorizontal>
-                      <RxCross1
-                        onClick={() => {
-                          setShowDelete(true);
-                          setOk3(r._id);
-                        }}
-                        className="text-secondary ms-2"
-                      ></RxCross1>
+                      <ImLoop className="text-secondary"></ImLoop>
+                      <span className="ms-2">Diffondi il post</span>
                     </div>
-                  </div>
+                    <div>
+                      <IoPaperPlane className="text-secondary"></IoPaperPlane>
+                      <span className="ms-2">Invia</span>
+                    </div>
+                  </Modal.Footer>
+                </Modal.Dialog>
+                <div className="w-75">
+                  {ok3 === r._id && (
+                    <DeletePutPostModal
+                      refresh={refresh}
+                      showDelete={showDelete}
+                      setShowDeleteFunc={setShowDeleteFunc}
+                      profileData={profileData}
+                      text={r.text}
+                      _id={r._id}
+                      setRefreshFunction={setRefreshFunction}
+                    />
+                  )}
                 </div>
-                <Modal.Body>
-                  <p className="w-100  mt-3 kkk">{r.text}</p>
-                </Modal.Body>
-
-                <Modal.Footer className="d-flex justify-content-around">
-                  <div>
-                    <FaThumbsUp className="text-secondary"></FaThumbsUp>
-                    <span className="ms-2">Consiglia</span>
-                  </div>
-
-                  <div>
-                    <FaCommentDots className="text-secondary"></FaCommentDots>
-                    <span className="ms-2">Commenta</span>
-                  </div>
-                  <div>
-                    <ImLoop className="text-secondary"></ImLoop>
-                    <span className="ms-2">Diffondi il post</span>
-                  </div>
-                  <div>
-                    <IoPaperPlane className="text-secondary"></IoPaperPlane>
-                    <span className="ms-2">Invia</span>
-                  </div>
-                </Modal.Footer>
-              </Modal.Dialog>
-              <div className="w-75">
-                {ok3 === r._id && (
-                  <DeletePutPostModal
-                    refresh={refresh}
-                    showDelete={showDelete}
-                    setShowDeleteFunc={setShowDeleteFunc}
-                    profileData={profileData}
-                    text={r.text}
-                    _id={r._id}
-                    setRefreshFunction={setRefreshFunction}
-                  />
-                )}
               </div>
-            </div>
-          );
-        })}
-    </>
-  );
+            );
+          })}
+      </>
+    );
+  }
 };
 
 export default Activities;

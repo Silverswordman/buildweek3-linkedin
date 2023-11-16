@@ -117,10 +117,10 @@ const HomeLeftSection = () => {
           </div>
           <div className="px-3  d-flex flex-column justify-content-center align-items-center">
             <img
-              src={ProfilePic}
+              src={profileObj.image ? profileObj.image : ProfilePic}
               width={100}
               alt="pic profile"
-              className="position-relative top-0 start-50 translate-middle "
+              className="position-relative top-0 start-50 translate-middle rounded-circle "
             ></img>
             <h6
               className="mb-0"
