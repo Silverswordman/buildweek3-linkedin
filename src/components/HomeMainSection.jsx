@@ -35,6 +35,7 @@ const HomeMainSection = () => {
             throw new Error("errore nel recuper informazioni");
           }
         })
+
         .then((data) => {
           console.log("posts", data);
           setPostArray(data);
@@ -46,6 +47,26 @@ const HomeMainSection = () => {
           setLoading(false);
         });
     }, 1300);
+  };
+
+  const [refersh, setRefresh] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
+  const setRefreshFunction = (par) => {
+    setRefresh(refersh + par);
+  };
+
+  function display() {
+    setIsClicked(true);
+  }
+
+  function displayNone() {
+    setIsClicked(false);
+  }
+
+  const hide = (par) => {
+    console.log(par);
+    postArray.filter((elem) => elem._id === par);
+    setRefreshFunction(1);
   };
 
   useEffect(() => {
@@ -60,7 +81,10 @@ const HomeMainSection = () => {
 
   return (
     <>
-      <HomePostModal getPost={getPosts} />
+      <HomePostModal
+        getPost={getPosts}
+        setRefreshFunction={setRefreshFunction}
+      />
 
       {loading && (
         <div className="text-center m-3">
