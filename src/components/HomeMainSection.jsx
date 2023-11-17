@@ -51,16 +51,13 @@ const HomeMainSection = () => {
 
   const [refersh, setRefresh] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+
   const setRefreshFunction = (par) => {
     setRefresh(refersh + par);
   };
 
   function display() {
-    setIsClicked(true);
-  }
-
-  function displayNone() {
-    setIsClicked(false);
+    setIsClicked(!isClicked);
   }
 
   const hide = (par) => {
@@ -141,12 +138,12 @@ const HomeMainSection = () => {
                 </div>
               )}
             </Modal.Body>
-            <Modal.Footer className="d-flex justify-content-around">
+            <Modal.Footer className="d-flex justify-content-around mb-3">
               <div>
                 <FaThumbsUp className="text-secondary" />
                 <span className="ms-2">Consiglia</span>
               </div>
-              <div>
+              <div onClick={display}>
                 <FaCommentDots className="text-secondary" />
                 <span className="ms-2">Commenta</span>
               </div>
@@ -160,7 +157,7 @@ const HomeMainSection = () => {
               </div>
             </Modal.Footer>
           </Modal.Dialog>
-          <Comments profileId={r._id} />
+          {isClicked && <Comments profileId={r._id} />}
         </div>
       ))}
     </>
