@@ -65,7 +65,7 @@ const Experiences = (props) => {
           .then(() => {
             setLoading(false);
           });
-      }, 1300);
+      }, 1100);
     }
   };
 

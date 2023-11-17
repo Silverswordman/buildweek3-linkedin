@@ -18,6 +18,7 @@ import Spinner from "react-bootstrap/Spinner";
 const HomeMainSection = () => {
   const [postArray, setPostArray] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isClickedArray, setIsClickedArray] = useState([]);
 
   const getPosts = () => {
     setLoading(true);
@@ -35,10 +36,10 @@ const HomeMainSection = () => {
             throw new Error("errore nel recuper informazioni");
           }
         })
-
         .then((data) => {
           console.log("posts", data);
           setPostArray(data);
+          setIsClickedArray(Array(data.length).fill(false));
         })
         .catch((error) => {
           console.log("ERROR", error);
@@ -46,24 +47,19 @@ const HomeMainSection = () => {
         .then(() => {
           setLoading(false);
         });
-    }, 1300);
+    }, 1000);
   };
 
   const [refersh, setRefresh] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
 
   const setRefreshFunction = (par) => {
     setRefresh(refersh + par);
   };
 
-  function display() {
-    setIsClicked(!isClicked);
-  }
-
-  const hide = (par) => {
-    console.log(par);
-    postArray.filter((elem) => elem._id === par);
-    setRefreshFunction(1);
+  const display = (index) => {
+    const newIsClickedArray = [...isClickedArray];
+    newIsClickedArray[index] = !newIsClickedArray[index];
+    setIsClickedArray(newIsClickedArray);
   };
 
   useEffect(() => {
@@ -75,6 +71,10 @@ const HomeMainSection = () => {
   useEffect(() => {
     dispatch(getCommentsAction());
   }, []);
+
+  const getReversedPosts = () => {
+    return postArray.slice().reverse();
+  };
 
   return (
     <>
@@ -89,7 +89,7 @@ const HomeMainSection = () => {
         </div>
       )}
 
-      {postArray.reverse().map((r) => (
+      {getReversedPosts().map((r, index) => (
         <div
           className="bg-white my-3 border border-1 rounded p-4"
           style={{ display: "block", position: "initial" }}
@@ -114,7 +114,7 @@ const HomeMainSection = () => {
                       {r.user.bio ||
                         Math.floor(Math.random() * 10000) + " Followers"}
                     </p>
-                    <div className="d-flex  align-items-center">
+                    <div className="d-flex align-items-center">
                       <span className="mb-0 ms-3 text-secondary Fs-8 ">
                         {formatDistance(new Date(r.updatedAt), new Date(), {
                           addSuffix: true,
@@ -141,23 +141,31 @@ const HomeMainSection = () => {
             <Modal.Footer className="d-flex justify-content-around mb-3">
               <div>
                 <FaThumbsUp className="text-secondary" />
-                <span className="ms-2">Consiglia</span>
+                <span className="ms-2" style={{ cursor: "pointer" }}>
+                  Consiglia
+                </span>
               </div>
-              <div onClick={display}>
+              <div onClick={() => display(index)}>
                 <FaCommentDots className="text-secondary" />
-                <span className="ms-2">Commenta</span>
+                <span className="ms-2" style={{ cursor: "pointer" }}>
+                  Commenta
+                </span>
               </div>
               <div>
                 <ImLoop className="text-secondary" />
-                <span className="ms-2">Diffondi il post</span>
+                <span className="ms-2" style={{ cursor: "pointer" }}>
+                  Diffondi il post
+                </span>
               </div>
               <div>
                 <IoPaperPlane className="text-secondary" />
-                <span className="ms-2">Invia</span>
+                <span className="ms-2" style={{ cursor: "pointer" }}>
+                  Invia
+                </span>
               </div>
             </Modal.Footer>
           </Modal.Dialog>
-          {isClicked && <Comments profileId={r._id} />}
+          {isClickedArray[index] && <Comments profileId={r._id} />}
         </div>
       ))}
     </>
