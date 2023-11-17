@@ -96,7 +96,7 @@ const HomePostModal = (props) => {
               setShowAddFunc={setShowAddFunc}
               profileData={profileData}
               setRefreshFunction={props.setRefreshFunction}
-
+              getPosts={props.getPost}    
             />
           </div>
         </div>

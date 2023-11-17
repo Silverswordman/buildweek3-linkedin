@@ -118,7 +118,8 @@ const HomeLeftSection = () => {
           <div className="px-3  d-flex flex-column justify-content-center align-items-center">
             <img
               src={profileObj.image ? profileObj.image : ProfilePic}
-              width={100}
+              width={80}
+              height={80}
               alt="pic profile"
               className="position-relative top-0 start-50 translate-middle rounded-circle "
             ></img>

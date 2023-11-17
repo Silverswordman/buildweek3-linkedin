@@ -10,6 +10,9 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import formatDistance from "date-fns/formatDistance";
 import { FaGlobeAmericas } from "react-icons/fa";
 import HomePostModal from "./HomePostModal";
+import Comments from "./Comments";
+import { useDispatch, useSelector } from "react-redux";
+import { getCommentsAction } from "../redux/actions";
 
 const HomeMainSection = () => {
   const [postArray, setPostArray] = useState([]);
@@ -51,9 +54,16 @@ const HomeMainSection = () => {
     console.log(postArray);
   }, [refersh]);
 
+  const dispatch = useDispatch()
+  
+
+  useEffect(()=>{
+      dispatch(getCommentsAction())
+  },[])
+
   return (
     <>
-      <HomePostModal setRefreshFunction={setRefreshFunction} />
+      <HomePostModal getPost={getPosts} setRefreshFunction={setRefreshFunction} />
 
       {postArray.reverse().map((r) => {
         return (
@@ -68,14 +78,15 @@ const HomeMainSection = () => {
                   <div className="d-flex">
                     <div>
                       <img
-                        src={r.image ? r.image : ProfilePic}
+                        src={r.user.image ? r.user.image : ProfilePic}
                         className="rounded-circle"
                         alt="kitten"
                         width={50}
+                        height={50}
                       ></img>
                     </div>
                     <div className="d-flex flex-column">
-                      <h6 className="ms-3 mb-0">{r.username}</h6>
+                      <h6 className="ms-3 mb-0">{r.user.username}</h6>
                       <p className="mb-0 ms-3 text-secondary Fs-8 ">
                         {r.user.bio
                           ? r.user.bio
@@ -128,9 +139,11 @@ const HomeMainSection = () => {
                 </div>
               </Modal.Footer>
             </Modal.Dialog>
+            <Comments profileId={r._id}/>
           </div>
         );
       })}
+      
     </>
   );
 };

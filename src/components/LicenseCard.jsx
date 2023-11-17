@@ -3,8 +3,11 @@ import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { LiaPlusSolid } from "react-icons/lia";
 import english from "../Assets/inglese-700x650.png";
+import { useLocation } from "react-router-dom";
 
 const LicenseCard = () => {
+  const { pathname } = useLocation();
+  const isMeRoute = pathname === "/me";
   return (
     <Card className="mb-1 mt-3">
       <Card.Body className="p-4 l">
@@ -15,15 +18,21 @@ const LicenseCard = () => {
             </Col>
 
             <Col lg={6} className="text-end align-items-center">
-              <LiaPlusSolid
-                className=" fs-3 text-secondary me-4 "
-                style={{ cursor: "pointer" }}
-              />
-
-              <HiOutlinePencil
-                className=" fs-4 text-secondary  "
-                style={{ cursor: "pointer" }}
-              />
+              {isMeRoute && (
+                <>
+                
+                <LiaPlusSolid
+                  className=" fs-3 text-secondary me-4 "
+                  style={{ cursor: "pointer" }}
+                />
+  
+                <HiOutlinePencil
+                  className=" fs-4 text-secondary  "
+                  style={{ cursor: "pointer" }}
+                />
+                
+                </>
+              )}
             </Col>
           </Row>
         </Card.Title>

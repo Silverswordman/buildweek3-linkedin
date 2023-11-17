@@ -20,6 +20,7 @@ const ProfileImage = ()=>{
             
         }
     }
+    
 
     const profileImg = useSelector(state=>state.personalprofile.account.image)
     const profileId = useSelector(state=>state.personalprofile.account._id)

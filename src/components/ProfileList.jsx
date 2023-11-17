@@ -45,6 +45,7 @@ const ProfileList = () => {
                     src={profile.image}
                     alt="profilepic"
                     width={35}
+                    height={35}
                     className="rounded-circle"
                   />
                 </Col>

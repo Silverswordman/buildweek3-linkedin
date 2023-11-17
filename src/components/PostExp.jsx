@@ -43,6 +43,7 @@ const PostExp = (props) => {
           //   area: "",
           //   description: "",
           // });
+          props.getExperiences()
         } else {
           alert("errore");
           throw new Error("errore nel post");

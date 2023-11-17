@@ -6,8 +6,11 @@ import { FaArrowRight } from "react-icons/fa6";
 import { useState } from "react";
 import { HiUsers } from "react-icons/hi2";
 import users from "../Assets/1660833954461.png";
+import { useLocation } from "react-router-dom";
 
 const CompetenzeCard = () => {
+  const { pathname } = useLocation();
+  const isMeRoute = pathname === "/me";
   const [isHovered, setIsHovered] = useState(false);
 
   function changeBackground() {
@@ -27,15 +30,20 @@ const CompetenzeCard = () => {
             </Col>
 
             <Col lg={6} className="text-end align-items-center">
-              <LiaPlusSolid
-                className=" fs-3 text-secondary me-4 "
-                style={{ cursor: "pointer" }}
-              />
-
-              <HiOutlinePencil
-                className=" fs-4 text-secondary  "
-                style={{ cursor: "pointer" }}
-              />
+              {isMeRoute && (
+                <>
+                
+                <LiaPlusSolid
+                  className=" fs-3 text-secondary me-4 "
+                  style={{ cursor: "pointer" }}
+                />
+  
+                <HiOutlinePencil
+                  className=" fs-4 text-secondary  "
+                  style={{ cursor: "pointer" }}
+                />
+                </>
+              )}
             </Col>
           </Row>
         </Card.Title>

@@ -6,6 +6,7 @@ import queryReducer from "../reducers/query";
 import jobsReducer from "../reducers/jobs";
 import keyReducer from "../reducers/key";
 import personalProfileReducer from "../reducers/personalprofile";
+import commentsReducer from "../reducers/comments";
 
 const myReducer = combineReducers({
   profile: profileReducer,
@@ -15,6 +16,7 @@ const myReducer = combineReducers({
   jobs: jobsReducer,
   key: keyReducer,
   personalprofile: personalProfileReducer,
+  comments: commentsReducer,
 });
 
 const store = configureStore({
