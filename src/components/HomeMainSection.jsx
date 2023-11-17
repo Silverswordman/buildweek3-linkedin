@@ -10,6 +10,9 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import formatDistance from "date-fns/formatDistance";
 import { FaGlobeAmericas } from "react-icons/fa";
 import HomePostModal from "./HomePostModal";
+import Comments from "./Comments";
+import { useDispatch, useSelector } from "react-redux";
+import { getCommentsAction } from "../redux/actions";
 
 const HomeMainSection = () => {
   const [postArray, setPostArray] = useState([]);
@@ -50,6 +53,13 @@ const HomeMainSection = () => {
     getPosts();
     console.log(postArray);
   }, [refersh]);
+
+  const dispatch = useDispatch()
+  
+
+  useEffect(()=>{
+      dispatch(getCommentsAction())
+  },[])
 
   return (
     <>
@@ -129,9 +139,11 @@ const HomeMainSection = () => {
                 </div>
               </Modal.Footer>
             </Modal.Dialog>
+            <Comments profileId={r._id}/>
           </div>
         );
       })}
+      
     </>
   );
 };

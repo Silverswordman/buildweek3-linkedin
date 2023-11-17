@@ -116,7 +116,7 @@ const PutDeleteExp = (props) => {
   }, []);
   return (
     <>
-      (
+      
       <div className="m-5 w-100 d-flex justify-content-start">
         <Form
           onSubmit={(e) => {
@@ -245,7 +245,7 @@ const PutDeleteExp = (props) => {
           </div>
         </Form>
       </div>
-      )
+      
     </>
   );
 };

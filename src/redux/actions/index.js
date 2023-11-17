@@ -8,8 +8,12 @@ export const RESET_QUERY = "RESET_QUERY";
 export const SET_KEY = "SET_KEY";
 export const GET_PERSONAL_PROFILE = "GET_PERSONAL_PROFILE";
 export const SET_IMAGE = "SET_IMAGE";
+export const GET_COMMENTS = "GET_COMMENTS";
 
 const key = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c`;
+
+const keyComments =
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU3MzMyZDgyMGJjZjAwMTg4NWZmYjQiLCJpYXQiOjE3MDAyMTM1NDksImV4cCI6MTcwMTQyMzE0OX0.s7IoR44sQ5hYmwZaPPdAucQEdoVExjjQ_QgmQZzDeA0";
 
 export const getProfileAction = (keyWord) => {
   return async (dispatch) => {
@@ -215,6 +219,33 @@ export const setImageProfileAction = (id, formData) => {
           payload: imageUrl,
         });
         dispatch(getPersonalProfileAction());
+      })
+      .catch((err) => {
+        console.log("errore", err);
+      });
+  };
+};
+
+export const getCommentsAction = () => {
+  return async (dispatch) => {
+    fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
+      headers: {
+        Authorization: keyComments,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("errore nel recupero dei commenti");
+        }
+      })
+      .then((comments) => {
+        // console.log(profile);
+        dispatch({
+          type: GET_COMMENTS,
+          payload: comments,
+        });
       })
       .catch((err) => {
         console.log("errore", err);
