@@ -1,35 +1,35 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Card } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 
 import PostExp from "./PostExp";
 import format from "date-fns/format";
 import { HiOutlinePencil } from "react-icons/hi";
-// import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { LiaPlusSolid } from "react-icons/lia";
 import PutDeleteExp from "./PutDeleteExp";
 import empty from "../Assets/linkedin.png";
-import { Card } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
 const Experiences = (props) => {
   const key =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c";
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZGEzMDE1ODgwMTAwMTg2NDJjODQiLCJpYXQiOjE3MDAxMjUyMzIsImV4cCI6MTcwMTMzNDgzMn0.OldITBQRnPFb8j3LBIPOgmHzNArjzjsd8ikaf3keZ2g";
 
   const location = useLocation();
   const { pathname } = useLocation();
   const isMeRoute = pathname === "/me";
   const dispatch = useDispatch();
-  // const Experience = useSelector((state) => state.experiences.content);
   const [Experience, setExperience] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const [ok, setOk] = useState(false);
   const [ok1, setOk1] = useState(``);
+  const [okPut, setOkPut] = useState(false);
+  const [underId, setUnderId] = useState(0);
+
   const setOk1Function = (par) => {
     setOk1(par);
   };
-  const [okPut, setOkPut] = useState(false);
-  const [underId, setUnderId] = useState(0);
 
   const okFunction = (elem) => [setOk(elem)];
   const underIdFunction = (elem) => setUnderId(underId + elem);
@@ -37,37 +37,39 @@ const Experiences = (props) => {
   const countFunction = (elem) => [window.location.reload(elem)];
 
   const getExperiences = () => {
+    setLoading(true);
     if (props.profileId) {
-      fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${props.profileId}/experiences`,
-        {
-          headers: {
-            Authorization: key,
-          },
-        }
-      )
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          } else {
-            throw new Error("errore nel recupero dei dati");
+      setTimeout(() => {
+        fetch(
+          `https://striveschool-api.herokuapp.com/api/profile/${props.profileId}/experiences`,
+          {
+            headers: {
+              Authorization: key,
+            },
           }
-        })
-        .then((experiences) => {
-          console.log(experiences);
-          setExperience(experiences);
-        })
-        .catch((err) => {
-          console.log("errore", err);
-        });
+        )
+          .then((res) => {
+            if (res.ok) {
+              return res.json();
+            } else {
+              throw new Error("errore nel recupero dei dati");
+            }
+          })
+          .then((experiences) => {
+            console.log(experiences);
+            setExperience(experiences);
+          })
+          .catch((err) => {
+            console.log("errore", err);
+          })
+          .then(() => {
+            setLoading(false);
+          });
+      }, 1300);
     }
   };
 
   useEffect(() => {
-    // if (typeof props.profileId === "string" && props.profileId.trim() !== "") {
-    //   dispatch(getExperiencesAction(props.profileId));
-    // console.log(Experience);
-    // }
     getExperiences();
   }, [dispatch, props.profileId, underId]);
 
@@ -86,6 +88,11 @@ const Experiences = (props) => {
               />
             )}
           </div>
+          {loading && (
+            <div className="text-center">
+              <Spinner animation="grow" variant="secondary" />
+            </div>
+          )}{" "}
           {Experience.map((r) => {
             return (
               <div key={r._id}>
@@ -137,15 +144,12 @@ const Experiences = (props) => {
                     <div className="d-flex align-items-center justify-content-between">
                       <h4 className="mb-0">{r.role}</h4>
                       {isMeRoute && (
-
-                      <HiOutlinePencil
-                        onClick={() => {
-                          setOk1(r._id);
-                        }}
-                      />
-                      
+                        <HiOutlinePencil
+                          onClick={() => {
+                            setOk1(r._id);
+                          }}
+                        />
                       )}
-      
                     </div>
                     <p className="mb-0">{r.company}</p>
                     <p className="mb-0">
@@ -159,9 +163,7 @@ const Experiences = (props) => {
                     <p className="mb-0">{r.area}</p>
                     <p className="mt-3 mb-0">{r.description}</p>
                   </div>
-                  {/* <hr className="bg-black w-100 m-0"></hr> */}
                 </div>
-                {/* <hr className="bg-black w-100 m-0"></hr> */}
                 {okPut && (
                   <div
                     className="modal show modal-modify"
