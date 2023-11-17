@@ -9,6 +9,7 @@ export const SET_KEY = "SET_KEY";
 export const GET_PERSONAL_PROFILE = "GET_PERSONAL_PROFILE";
 export const SET_IMAGE = "SET_IMAGE";
 export const GET_COMMENTS = "GET_COMMENTS";
+export const SET_COMMENTS = "SET_COMMENTS";
 
 const key = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTllZGM1NWU3ZTAwMThmODNjMDAiLCJpYXQiOjE2OTk4NjcxMTcsImV4cCI6MTcwMTA3NjcxN30.gkoLxXA055IvgniaKrq1Qdv-mUWblGM48riIp10MI9c`;
 
@@ -246,6 +247,40 @@ export const getCommentsAction = () => {
           type: GET_COMMENTS,
           payload: comments,
         });
+      })
+      .catch((err) => {
+        console.log("errore", err);
+      });
+  };
+};
+
+export const setCommentsAction = (query, id) => {
+  return async (dispatch) => {
+    fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
+      method: "POST",
+      body: JSON.stringify({
+        comment: query,
+        rate: "1",
+        elementId: id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: keyComments,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("errore nel invio dei commenti");
+        }
+      })
+      .then((comments) => {
+        dispatch({
+          type: SET_COMMENTS,
+          payload: comments,
+        });
+        dispatch(getCommentsAction());
       })
       .catch((err) => {
         console.log("errore", err);

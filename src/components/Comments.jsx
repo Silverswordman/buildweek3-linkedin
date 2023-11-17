@@ -1,6 +1,8 @@
 
+import { useState } from "react"
 import { Form, FormGroup } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { setCommentsAction } from "../redux/actions"
 
 
 
@@ -9,8 +11,15 @@ const Comments = (props)=>{
   
     const postComments = comments.filter((el)=> el.elementId === props.profileId)
 
+    const [query,setQuery] = useState('')
+    const dispatch = useDispatch()
     // console.log(postComments)
-    console.log(postComments)
+    // console.log(postComments)
+    const handleForm = (e)=>{
+        e.preventDefault()
+        dispatch(setCommentsAction(query, props.profileId))
+        setQuery('')
+    }
 
     return (
         <>
@@ -25,7 +34,12 @@ const Comments = (props)=>{
 
               )
             })}
-           
+           <Form className="mt-3" onSubmit={handleForm}>
+            <Form.Group className="mb-3" c>
+            
+            <Form.Control type="text" placeholder="Inserisci il commento" onChange={(e)=>{setQuery(e.target.value)}} value={query}/>
+            </Form.Group>
+           </Form>
              
         </>
     )
