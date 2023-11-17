@@ -2,6 +2,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { LiaPlusSolid } from "react-icons/lia";
+import epicode from "../Assets/EPICODE.png";
 
 const FormazioneCard = () => {
   return (
@@ -31,14 +32,16 @@ const FormazioneCard = () => {
             <Col lg={2}>
               {" "}
               <img
-                src="http://placekitten.com/75"
-                alt="kitten"
+                src={epicode}
+                alt="logo epicode"
                 className=""
+                width={65}
               ></img>
             </Col>
             <Col lg={10}>
               <p className="fw-semibold fs-5 my-0 ">Epicode</p>
-              <p className=" my-0 small ">Corso Front-End Web Development</p>
+              <p className=" my-0 small ">Corso Front-End Web Development </p>
+              <p className=" my-0 small text-muted ">HTML & CSS</p>
               <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
               <p className=" my-0 small ">Votazione 100/100</p>
             </Col>
@@ -47,14 +50,16 @@ const FormazioneCard = () => {
             <Col lg={2}>
               {" "}
               <img
-                src="http://placekitten.com/75"
-                alt="kitten"
+                src={epicode}
+                alt="logo epicode"
                 className=""
+                width={65}
               ></img>
             </Col>
             <Col lg={10}>
               <p className="fw-semibold fs-5 my-0 ">Epicode</p>
-              <p className=" my-0 small ">Corso Front-End Web Development</p>
+              <p className=" my-0 small ">Corso Front-End Web Development </p>
+              <p className=" my-0 small text-muted ">Javascript & Bootstrap</p>
               <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
               <p className=" my-0 small ">Votazione 100/100</p>
             </Col>
@@ -63,14 +68,16 @@ const FormazioneCard = () => {
             <Col lg={2}>
               {" "}
               <img
-                src="http://placekitten.com/75"
-                alt="kitten"
+                src={epicode}
+                alt="logo epicode"
                 className=""
+                width={65}
               ></img>
             </Col>
             <Col lg={10}>
               <p className="fw-semibold fs-5 my-0 ">Epicode</p>
               <p className=" my-0 small ">Corso Front-End Web Development</p>
+              <p className=" my-0 small text-muted ">React & Redux </p>
               <p className=" my-0 small text-muted ">Ago 2023 - In Corso</p>
               <p className=" my-0 small ">Votazione 100/100</p>
             </Col>

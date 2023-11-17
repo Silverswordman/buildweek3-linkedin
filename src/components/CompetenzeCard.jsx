@@ -5,6 +5,7 @@ import { LiaPlusSolid } from "react-icons/lia";
 import { FaArrowRight } from "react-icons/fa6";
 import { useState } from "react";
 import { HiUsers } from "react-icons/hi2";
+import users from "../Assets/1660833954461.png";
 
 const CompetenzeCard = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -44,9 +45,10 @@ const CompetenzeCard = () => {
             <Col lg={1}>
               {" "}
               <img
-                src="http://placekitten.com/25"
-                alt="kitten"
+                src={users}
+                alt="users"
                 className="rounded-circle"
+                width={35}
               ></img>
             </Col>
             <Col lg={11}>
@@ -55,16 +57,17 @@ const CompetenzeCard = () => {
             <Col lg={1}>
               {" "}
               <img
-                src="http://placekitten.com/25"
-                alt="kitten"
+                src={users}
+                alt="users"
                 className="rounded-circle"
+                width={35}
               ></img>
             </Col>
             <Col lg={11}>
               <p className=" my-0  ">Competenza confermata da ...</p>
             </Col>
             <Col lg={1}>
-              <HiUsers></HiUsers>
+              <HiUsers className="ms-2 fs-6"></HiUsers>
             </Col>
             <Col lg={11}>
               <p className=" my-0  ">18 Conferme</p>
@@ -77,9 +80,10 @@ const CompetenzeCard = () => {
             <Col lg={1}>
               {" "}
               <img
-                src="http://placekitten.com/25"
-                alt="kitten"
+                src={users}
+                alt="users"
                 className="rounded-circle"
+                width={35}
               ></img>
             </Col>
             <Col lg={11}>
@@ -87,7 +91,7 @@ const CompetenzeCard = () => {
             </Col>
 
             <Col lg={1}>
-              <HiUsers></HiUsers>
+              <HiUsers className="ms-2 fs-6"></HiUsers>
             </Col>
             <Col lg={11}>
               <p className=" my-0  ">40 Conferme</p>
@@ -101,9 +105,10 @@ const CompetenzeCard = () => {
             <Col lg={1}>
               {" "}
               <img
-                src="http://placekitten.com/25"
-                alt="kitten"
+                src={users}
+                alt="users"
                 className="rounded-circle"
+                width={35}
               ></img>
             </Col>
             <Col lg={11}>
@@ -111,7 +116,7 @@ const CompetenzeCard = () => {
             </Col>
 
             <Col lg={1}>
-              <HiUsers></HiUsers>
+              <HiUsers className="ms-2 fs-6"></HiUsers>
             </Col>
             <Col lg={11}>
               <p className=" my-0  ">8 Conferme</p>

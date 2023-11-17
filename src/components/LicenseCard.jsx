@@ -2,6 +2,7 @@ import { Col, Row } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { HiOutlinePencil } from "react-icons/hi";
 import { LiaPlusSolid } from "react-icons/lia";
+import english from "../Assets/inglese-700x650.png";
 
 const LicenseCard = () => {
   return (
@@ -30,11 +31,7 @@ const LicenseCard = () => {
           <Row className="mb-2">
             <Col lg={2}>
               {" "}
-              <img
-                src="http://placekitten.com/75"
-                alt="kitten"
-                className=""
-              ></img>
+              <img src={english} alt="english" width={80}></img>
             </Col>
             <Col lg={10}>
               <p className="fw-semibold fs-5 my-0 "></p>
