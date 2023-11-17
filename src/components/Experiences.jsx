@@ -136,11 +136,16 @@ const Experiences = (props) => {
                   <div className="ms-3 w-100">
                     <div className="d-flex align-items-center justify-content-between">
                       <h4 className="mb-0">{r.role}</h4>
+                      {isMeRoute && (
+
                       <HiOutlinePencil
                         onClick={() => {
                           setOk1(r._id);
                         }}
                       />
+                      
+                      )}
+      
                     </div>
                     <p className="mb-0">{r.company}</p>
                     <p className="mb-0">
@@ -202,6 +207,7 @@ const Experiences = (props) => {
 
                 <Modal.Body>
                   <PostExp
+                    getExperiences={getExperiences}
                     okFunction={okFunction}
                     underIdFunction={underIdFunction}
                   ></PostExp>

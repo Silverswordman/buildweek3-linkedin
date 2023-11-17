@@ -37,6 +37,7 @@ const AddPostModal = (props) => {
         console.log("oggetto inviato", events);
         if (events.ok) {
           alert("oggetto inviato");
+          props.getPosts()
         } else {
           alert("errore");
           throw new Error("errore nel post");

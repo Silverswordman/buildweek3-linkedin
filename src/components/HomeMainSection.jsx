@@ -53,7 +53,7 @@ const HomeMainSection = () => {
 
   return (
     <>
-      <HomePostModal setRefreshFunction={setRefreshFunction} />
+      <HomePostModal getPost={getPosts} setRefreshFunction={setRefreshFunction} />
 
       {postArray.reverse().map((r) => {
         return (
@@ -68,14 +68,15 @@ const HomeMainSection = () => {
                   <div className="d-flex">
                     <div>
                       <img
-                        src={r.image ? r.image : ProfilePic}
+                        src={r.user.image ? r.user.image : ProfilePic}
                         className="rounded-circle"
                         alt="kitten"
                         width={50}
+                        height={50}
                       ></img>
                     </div>
                     <div className="d-flex flex-column">
-                      <h6 className="ms-3 mb-0">{r.username}</h6>
+                      <h6 className="ms-3 mb-0">{r.user.username}</h6>
                       <p className="mb-0 ms-3 text-secondary Fs-8 ">
                         {r.user.bio
                           ? r.user.bio

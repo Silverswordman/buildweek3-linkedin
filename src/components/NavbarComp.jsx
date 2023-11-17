@@ -62,7 +62,7 @@ const NavbarComp = () => {
         {/* NAVBARBRAND */}
 
         <Link to="/" className="me-2 align-self-center  ">
-          <img src={Logo} alt="Logo" width={35} />
+          <img src={Logo} alt="Logo" width={35}  />
         </Link>
 
         {/* SEARCH */}
@@ -138,6 +138,7 @@ const NavbarComp = () => {
               src={personalProfile.image}
               alt="profileimg"
               width={25}
+              height={25}
               className="rounded-circle"
             ></img>{" "}
             <span className="small d-none d-lg-block"> Tu</span>
