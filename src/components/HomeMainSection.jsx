@@ -40,9 +40,19 @@ const HomeMainSection = () => {
       });
   };
   const [refersh, setRefresh] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
   const setRefreshFunction = (par) => {
     setRefresh(refersh + par);
   };
+
+  function display() {
+    setIsClicked(true);
+  }
+
+  function displayNone() {
+    setIsClicked(false);
+  }
+
   const hide = (par) => {
     console.log(par);
     postArray.filter((elem) => elem._id === par);
@@ -54,16 +64,18 @@ const HomeMainSection = () => {
     console.log(postArray);
   }, [refersh]);
 
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
-      dispatch(getCommentsAction())
-  },[])
+  useEffect(() => {
+    dispatch(getCommentsAction());
+  }, []);
 
   return (
     <>
-      <HomePostModal getPost={getPosts} setRefreshFunction={setRefreshFunction} />
+      <HomePostModal
+        getPost={getPosts}
+        setRefreshFunction={setRefreshFunction}
+      />
 
       {postArray.reverse().map((r) => {
         return (
@@ -139,11 +151,13 @@ const HomeMainSection = () => {
                 </div>
               </Modal.Footer>
             </Modal.Dialog>
-            <Comments profileId={r._id}/>
+
+            <div className="my-4">
+              <Comments profileId={r._id} />
+            </div>
           </div>
         );
       })}
-      
     </>
   );
 };

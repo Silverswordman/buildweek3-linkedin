@@ -3,13 +3,11 @@ import HomeMainSection from "./HomeMainSection";
 import HomeLeftSection from "./HomeLeftSection";
 import HomeRightSection from "./HomeRightSection";
 import HomeFooter from "./HomeFooter";
-import HomeComments from "./HomeComments";
 
 const Home = () => {
   return (
     <Container>
       <Row>
-        {/* <HomeComments></HomeComments> */}
         <Col md={3} className="mt-4">
           <HomeLeftSection></HomeLeftSection>
         </Col>
