@@ -40,9 +40,19 @@ const HomeMainSection = () => {
       });
   };
   const [refersh, setRefresh] = useState(0);
+  const [isClicked, setIsClicked] = useState(false);
   const setRefreshFunction = (par) => {
     setRefresh(refersh + par);
   };
+
+  function display() {
+    setIsClicked(true);
+  }
+
+  function displayNone() {
+    setIsClicked(false);
+  }
+
   const hide = (par) => {
     console.log(par);
     postArray.filter((elem) => elem._id === par);
@@ -141,7 +151,10 @@ const HomeMainSection = () => {
                 </div>
               </Modal.Footer>
             </Modal.Dialog>
-            <Comments profileId={r._id} />
+
+            <div className="my-4">
+              <Comments profileId={r._id} />
+            </div>
           </div>
         );
       })}
