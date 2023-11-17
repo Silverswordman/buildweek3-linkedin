@@ -10,6 +10,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import formatDistance from "date-fns/formatDistance";
 import { FaGlobeAmericas } from "react-icons/fa";
 import HomePostModal from "./HomePostModal";
+import HomeComments from "./HomeComments";
 
 const HomeMainSection = () => {
   const [postArray, setPostArray] = useState([]);
@@ -53,7 +54,10 @@ const HomeMainSection = () => {
 
   return (
     <>
-      <HomePostModal getPost={getPosts} setRefreshFunction={setRefreshFunction} />
+      <HomePostModal
+        getPost={getPosts}
+        setRefreshFunction={setRefreshFunction}
+      />
 
       {postArray.reverse().map((r) => {
         return (

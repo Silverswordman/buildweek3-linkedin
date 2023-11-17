@@ -31,11 +31,11 @@ const HomeComments = () => {
   }, []);
   return (
     <>
-      <Card>
+      {/* <Card>
         <Card.Body>
           {Comments.length > 0 ? Comments[0].comment : null}
         </Card.Body>
-      </Card>
+      </Card> */}
     </>
   );
 };
