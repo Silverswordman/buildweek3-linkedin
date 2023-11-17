@@ -3,18 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import ProfilePic from "../Assets/1660833954461.png";
 import { useState } from "react";
 import { setCommentsAction } from "../redux/actions";
+import formatDistance from "date-fns/formatDistance";
 
 const Comments = (props) => {
   const comments = useSelector((state) => state.comments.content);
-  const postComments = comments.filter((el) => el.elementId === props.profileId);
+  const postComments = comments.filter(
+    (el) => el.elementId === props.profileId
+  );
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const dispatch = useDispatch();
 
   const handleForm = (e) => {
     e.preventDefault();
     dispatch(setCommentsAction(query, props.profileId));
-    setQuery('');
+    setQuery("");
   };
 
   return (
@@ -37,7 +40,9 @@ const Comments = (props) => {
                   <div className="d-flex align-items-center justify-content-between">
                     <p className="fw-semibold mb-0">{el.author}</p>
                     <p className="text-secondary Fs-8 mb-0 pt-2">
-                      1 week ago
+                      {formatDistance(new Date(el.updatedAt), new Date(), {
+                        addSuffix: true,
+                      })}
                     </p>
                   </div>
                   <p className="text-secondary Fs-8">Web Developer</p>
